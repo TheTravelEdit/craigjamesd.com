@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/jpeg" href="images/cover-row-no5.jpg">
+<link rel="preload" as="image" href="images/cover-row-no5.jpg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CJ Davitt — Angling Artist · Original Oil Paintings · New Jersey</title>
+<meta name="description" content="Original oil paintings by CJ Davitt — angling artist from the Jersey Shore. Coastal subjects including bobbers, blue crabs, seascapes, and fishermen. Available for purchase and commission.">
+<meta name="author" content="CJ Davitt">
+<meta property="og:title" content="CJ Davitt — Angling Artist">
+<meta property="og:description" content="Original oil paintings rooted in the coast, the catch, and the quiet beauty of life by the water.">
+<meta property="og:image" content="https://craigjamesd.com/images/cover-row-no5.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://craigjamesd.com">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://craigjamesd.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Libre+Baskerville:ital,wght@0,400;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+img{display:block;max-width:100%;}
+button{border:none;background:none;}
+
+:root{
+  --white:#ffffff; --paper:#f9f8f6; --linen:#f2f0ec;
+  --stone:#e4e2dc; --pebble:#b8b4ac; --drift:#7a7670;
+  --anchor:#3a3834; --ink:#1a1816;
+  --ocean:#0f1f2e; --tide:#1c3344; --foam:#d4dfe6;
+  --serif:'Bodoni Moda',Georgia,serif;
+  --body:'Libre Baskerville',serif;
+  --sans:'DM Sans',sans-serif;
+  --pad:56px;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--paper);color:var(--anchor);font-family:var(--sans);overflow-x:hidden;cursor:none;}
+
+/* CURSOR */
+.cur,.curR{pointer-events:none;position:fixed;top:0;left:0;transform:translate(-50%,-50%);}
+.cur{width:9px;height:9px;background:var(--ink);border-radius:50%;z-index:9999;transition:width .2s,height .2s;}
+.curR{width:34px;height:34px;border:1px solid rgba(26,24,22,.15);border-radius:50%;z-index:9998;transition:left .07s ease-out,top .07s ease-out;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:26px var(--pad);transition:background .4s,padding .4s,border-color .4s;border-bottom:1px solid transparent;}
+nav.stuck{background:rgba(249,248,246,.96);backdrop-filter:blur(18px);padding:15px var(--pad);border-bottom-color:var(--stone);}
+.nav-brand{text-decoration:none;display:flex;flex-direction:column;gap:2px;}
+
+/* Floating over dark hero — white text */
+.nav-brand-name{font-family:var(--serif);font-size:1.08rem;font-weight:400;color:rgba(255,255,255,.92);letter-spacing:.03em;line-height:1;transition:color .35s;}
+.nav-brand-sub{font-family:var(--sans);font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.46);line-height:1;transition:color .35s;}
+.nav-links{display:flex;gap:30px;list-style:none;align-items:center;}
+.nav-links a{font-family:var(--sans);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.62);text-decoration:none;transition:color .25s;padding:4px 0;}
+.nav-links a:hover{color:rgba(255,255,255,.95);}
+.nav-cta{background:transparent;color:rgba(255,255,255,.62);padding:9px 20px;transition:background .25s,color .35s;}
+.nav-cta:hover{color:rgba(255,255,255,.95);background:transparent;}
+
+/* Scrolled — switch to dark */
+nav.stuck .nav-brand-name{color:var(--ink);}
+nav.stuck .nav-brand-sub{color:var(--pebble);}
+nav.stuck .nav-links a{color:var(--drift);}
+nav.stuck .nav-links a:hover{color:rgba(255,255,255,.95);}
+nav.stuck .nav-cta{background:var(--ink);color:var(--white);}
+nav.stuck .nav-cta:hover{background:var(--tide);}
+
+.nav-hamburger{display:none;}
+
+/* MOBILE DRAWER */
+.mob-drawer{display:none;position:fixed;inset:0;z-index:600;background:var(--ink);flex-direction:column;justify-content:center;align-items:center;opacity:0;transition:opacity .35s;}
+.mob-drawer.open{display:flex;opacity:1;}
+.mob-drawer-close{position:absolute;top:22px;right:22px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.55);font-size:1.35rem;cursor:pointer;}
+.mob-drawer-logo{position:absolute;top:22px;left:22px;font-family:var(--serif);font-size:.98rem;color:rgba(255,255,255,.45);}
+.mob-nav-list{list-style:none;text-align:center;}
+.mob-nav-list li{border-bottom:1px solid rgba(255,255,255,.07);}
+.mob-nav-list li:first-child{border-top:1px solid rgba(255,255,255,.07);}
+.mob-nav-list a{display:block;padding:19px 56px;font-family:var(--serif);font-size:1.45rem;font-style:italic;color:rgba(255,255,255,.68);text-decoration:none;transition:color .2s;}
+.mob-nav-list a:active{color:var(--white);}
+.mob-nav-cta{margin-top:28px;font-family:var(--sans);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;background:var(--white);color:var(--ink);padding:15px 38px;text-decoration:none;display:inline-block;}
+.mob-social{position:absolute;bottom:28px;display:flex;gap:20px;}
+.mob-social a{font-family:var(--sans);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.28);text-decoration:none;}
+
+/* BUTTONS */
+.btn-light{font-family:var(--sans);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;background:var(--white);color:var(--ink);padding:14px 32px;text-decoration:none;transition:background .25s,transform .25s;cursor:none;display:inline-block;}
+.btn-light:hover{background:var(--linen);transform:translateY(-2px);}
+.btn-ghost-w{font-family:var(--sans);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.22);padding:14px 32px;text-decoration:none;transition:border-color .25s,color .25s,transform .25s;cursor:none;display:inline-block;}
+.btn-ghost-w:hover{border-color:rgba(255,255,255,.6);color:var(--white);transform:translateY(-2px);}
+.btn-dark{font-family:var(--sans);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;background:var(--ink);color:var(--white);padding:14px 34px;text-decoration:none;display:inline-block;transition:background .25s,transform .25s;cursor:none;}
+.btn-dark:hover{background:var(--tide);transform:translateY(-2px);}
+.btn-wh{font-family:var(--sans);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;background:var(--white);color:var(--ink);padding:14px 34px;text-decoration:none;display:inline-block;transition:background .25s,transform .25s;cursor:none;}
+.btn-wh:hover{background:var(--foam);transform:translateY(-2px);}
+
+/* HERO */
+.hero{height:100vh;min-height:600px;position:relative;overflow:hidden;display:flex;align-items:flex-end;}
+.hero-bg{position:absolute;inset:0;background:var(--ocean);}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.65;animation:hzoom 24s ease-in-out infinite alternate;}
+@keyframes hzoom{from{transform:scale(1.02)}to{transform:scale(1.08)}}
+.hero-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 18% 85%,rgba(15,31,46,.78) 0%,transparent 55%),linear-gradient(0deg,rgba(15,31,46,.85) 0%,transparent 52%);}
+.hero-content{position:relative;z-index:10;width:100%;display:grid;grid-template-columns:1fr 1fr;align-items:flex-end;padding:0 var(--pad) 68px;gap:40px;}
+.hero-left{animation:fadeUp .9s ease both;}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-size:.57rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.46);margin-bottom:16px;}
+.hero-tag::before{content:'';width:20px;height:1px;background:rgba(255,255,255,.26);display:block;}
+h1.hero-title{font-family:var(--serif);font-size:clamp(2.6rem,5vw,5.4rem);font-weight:400;line-height:1.04;color:var(--white);margin-bottom:26px;letter-spacing:-.01em;}
+h1.hero-title em{font-style:italic;color:rgba(212,223,230,.8);}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.hero-right{animation:fadeUp .9s .15s ease both;display:flex;flex-direction:column;align-items:flex-end;gap:14px;}
+.hero-card{background:rgba(255,255,255,.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);padding:12px 16px;display:flex;align-items:center;gap:12px;min-width:230px;transition:background .3s;cursor:none;}
+.hero-card:hover{background:rgba(255,255,255,.13);}
+.hero-card-dot{width:7px;height:7px;border-radius:50%;background:#5fa87a;flex-shrink:0;}
+.hero-card-dot.sold{background:var(--pebble);}
+.hero-card-info{flex:1;}
+.hero-card-title{font-family:var(--serif);font-style:italic;font-size:.84rem;color:rgba(255,255,255,.84);margin-bottom:2px;line-height:1.2;}
+.hero-card-meta{font-family:var(--sans);font-size:.52rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.36);}
+.hero-card-price{font-family:var(--serif);font-size:.86rem;color:rgba(255,255,255,.65);white-space:nowrap;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+/* PRESS */
+.press{background:var(--ink);padding:15px var(--pad);display:flex;align-items:center;gap:26px;overflow:hidden;}
+.press-lbl{font-family:var(--sans);font-size:.54rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.18);white-space:nowrap;flex-shrink:0;}
+.press-div{width:1px;height:11px;background:rgba(255,255,255,.1);flex-shrink:0;}
+.press-item{font-family:var(--body);font-style:italic;font-size:.84rem;color:rgba(255,255,255,.38);white-space:nowrap;}
+.press-item strong{font-style:normal;font-weight:700;color:rgba(255,255,255,.65);}
+
+/* SECTION */
+section{padding:96px var(--pad);}
+.eyebrow{font-family:var(--sans);font-size:.56rem;letter-spacing:.28em;text-transform:uppercase;color:var(--pebble);display:flex;align-items:center;gap:11px;margin-bottom:13px;}
+.eyebrow::before{content:'';width:18px;height:1px;background:var(--stone);display:block;}
+
+/* ═══════ SHOP ═══════ */
+.shop-sec{background:var(--white);}
+.shop-top{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:12px;}
+h2.sec-title{font-family:var(--serif);font-size:clamp(2rem,3.6vw,3.4rem);font-weight:400;color:var(--ink);line-height:1.06;}
+h2.sec-title em{font-style:italic;}
+.filters{display:flex;gap:0;margin-bottom:44px;border-bottom:1px solid var(--stone);overflow-x:auto;scrollbar-width:none;}
+.filters::-webkit-scrollbar{display:none;}
+.filter-btn{font-family:var(--sans);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pebble);background:none;border:none;padding:11px 18px;cursor:none;position:relative;transition:color .25s;white-space:nowrap;min-height:44px;}
+.filter-btn::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--ink);transform:scaleX(0);transition:transform .25s;}
+.filter-btn:hover{color:var(--anchor);}
+.filter-btn.active{color:var(--ink);}
+.filter-btn.active::after{transform:scaleX(1);}
+.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+.art-card{cursor:none;}
+.art-card-img{position:relative;overflow:hidden;background:var(--linen);aspect-ratio:4/5;margin-bottom:12px;}
+.art-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease;}
+.art-card:hover .art-card-img img{transform:scale(1.04);}
+.art-card-ov{position:absolute;inset:0;background:rgba(15,31,46,.82);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:11px;opacity:0;transition:opacity .35s;}
+.art-card:hover .art-card-ov{opacity:1;}
+.ov-btn{font-family:var(--sans);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;background:var(--white);color:var(--ink);padding:10px 22px;text-decoration:none;transition:background .2s;cursor:none;display:inline-block;}
+.ov-btn:hover{background:var(--linen);}
+.ov-btn.sec{background:transparent;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.25);}
+.avail-badge{position:absolute;top:10px;left:10px;font-family:var(--sans);font-size:.48rem;letter-spacing:.15em;text-transform:uppercase;padding:4px 9px;z-index:5;}
+.avail-badge.av{background:rgba(255,255,255,.92);color:#3a7a56;}
+.avail-badge.sold{background:rgba(255,255,255,.72);color:var(--pebble);}
+.art-card-artist{font-family:var(--sans);font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;color:var(--pebble);margin-bottom:3px;}
+.art-card-title{font-family:var(--serif);font-size:.98rem;font-style:italic;color:var(--ink);margin-bottom:4px;line-height:1.2;}
+.art-card-details{font-family:var(--sans);font-size:.58rem;color:var(--drift);display:flex;align-items:center;justify-content:space-between;}
+.art-card-price{font-family:var(--body);font-size:.86rem;color:var(--anchor);}
+.art-card-tap{display:none;}
+.shop-footer{text-align:center;margin-top:48px;padding-top:40px;border-top:1px solid var(--stone);}
+.shop-footer p{font-family:var(--body);font-style:italic;color:var(--pebble);font-size:.88rem;margin-bottom:18px;}
+
+/* ═══════ FEATURED ═══════ */
+.feature-sec{display:grid;grid-template-columns:1fr 1fr;overflow:hidden;min-height:540px;}
+.feature-img{position:relative;overflow:hidden;}
+.feature-img img{width:100%;height:100%;object-fit:cover;opacity:.75;transition:transform .8s ease;}
+.feature-sec:hover .feature-img img{transform:scale(1.04);}
+.feature-img::before{content:'NOW AVAILABLE';position:absolute;top:18px;left:18px;background:var(--white);color:var(--ink);font-family:var(--sans);font-size:.48rem;letter-spacing:.22em;text-transform:uppercase;padding:5px 11px;z-index:5;}
+.feature-text{padding:68px 60px;display:flex;flex-direction:column;justify-content:center;background:var(--ocean);}
+.f-eyebrow{font-family:var(--sans);font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.24);display:flex;align-items:center;gap:10px;margin-bottom:13px;}
+.f-eyebrow::before{content:'';width:18px;height:1px;background:rgba(255,255,255,.16);display:block;}
+h2.f-title{font-family:var(--serif);font-size:clamp(1.6rem,2.7vw,2.6rem);font-weight:400;font-style:italic;color:var(--white);line-height:1.08;margin-bottom:7px;}
+.f-meta{font-family:var(--sans);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:22px;}
+.f-desc{font-family:var(--body);font-size:.9rem;line-height:1.85;color:rgba(255,255,255,.44);margin-bottom:28px;}
+.f-price-row{display:flex;align-items:center;gap:22px;margin-bottom:28px;}
+.f-price{font-family:var(--serif);font-size:1.8rem;font-weight:400;color:var(--white);line-height:1;}
+.f-size{font-family:var(--sans);font-size:.56rem;letter-spacing:.13em;color:rgba(255,255,255,.26);text-transform:uppercase;}
+
+/* ═══════ ABOUT THE ARTIST ═══════ */
+.about-sec{background:var(--paper);}
+
+/* Large intro layout */
+.about-intro{display:grid;grid-template-columns:5fr 4fr;gap:80px;align-items:start;margin-bottom:80px;}
+.about-intro-text{}
+h2.about-title{font-family:var(--serif);font-size:clamp(2.2rem,4vw,4rem);font-weight:400;line-height:1.04;color:var(--ink);margin-bottom:32px;letter-spacing:-.01em;}
+h2.about-title em{font-style:italic;}
+.about-lead{font-family:var(--serif);font-size:1.12rem;line-height:1.85;color:var(--anchor);margin-bottom:22px;font-weight:400;}
+.about-body{font-family:var(--body);font-size:.92rem;line-height:1.92;color:var(--drift);margin-bottom:18px;}
+.about-body strong{color:var(--anchor);font-weight:400;}
+.about-pull{margin:32px 0;padding:22px 28px;border-left:3px solid var(--ink);font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--anchor);line-height:1.65;background:var(--white);}
+
+/* Aside — portrait + credentials */
+.about-aside{}
+.about-portrait{position:relative;margin-bottom:28px;}
+.about-portrait img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 20%;display:block;}
+.about-portrait-cap{position:absolute;bottom:0;left:0;right:0;background:var(--ink);padding:16px 20px;}
+.apc-name{font-family:var(--serif);font-size:1.1rem;font-weight:400;color:rgba(255,255,255,.85);margin-bottom:2px;}
+.apc-sub{font-family:var(--sans);font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.32);}
+
+/* Credential cards */
+.creds{display:flex;flex-direction:column;gap:0;}
+.cred-item{padding:15px 0;border-bottom:1px solid var(--stone);}
+.cred-item:first-child{border-top:1px solid var(--stone);}
+.cred-title{font-family:var(--sans);font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:var(--pebble);margin-bottom:5px;}
+.cred-desc{font-family:var(--body);font-size:.9rem;color:var(--anchor);line-height:1.65;}
+.cred-desc a{color:var(--anchor);text-decoration:none;border-bottom:1px solid var(--stone);transition:border-color .2s;}
+.cred-desc a:hover{border-color:var(--anchor);}
+
+/* Timeline / story section */
+.about-timeline{margin-top:80px;padding-top:64px;border-top:1px solid var(--stone);}
+.timeline-header{text-align:center;margin-bottom:64px;}
+h3.tl-title{font-family:var(--serif);font-size:clamp(1.6rem,2.8vw,2.6rem);font-weight:400;color:var(--ink);margin-bottom:12px;}
+h3.tl-title em{font-style:italic;}
+.tl-sub{font-family:var(--body);font-style:italic;font-size:.92rem;color:var(--pebble);}
+.timeline{display:grid;grid-template-columns:1fr 40px 1fr;gap:0 0;position:relative;}
+.tl-spine{grid-column:2;display:flex;flex-direction:column;align-items:center;}
+.tl-spine-line{flex:1;width:1px;background:var(--stone);}
+.tl-node{width:10px;height:10px;border-radius:50%;background:var(--ink);flex-shrink:0;margin:4px 0;}
+
+.tl-left{text-align:right;padding:0 32px 52px 0;display:flex;flex-direction:column;justify-content:flex-start;}
+.tl-right{padding:0 0 52px 32px;display:flex;flex-direction:column;justify-content:flex-start;}
+.tl-empty{padding-bottom:52px;}
+
+.tl-year{font-family:var(--sans);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pebble);margin-bottom:6px;}
+.tl-event-title{font-family:var(--serif);font-size:1rem;font-style:italic;color:var(--ink);margin-bottom:6px;line-height:1.2;}
+.tl-event-body{font-family:var(--body);font-size:.82rem;color:var(--drift);line-height:1.65;}
+
+/* Paintings as gallery dividers in About */
+.about-gallery-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin:64px 0;}
+.ags-item{overflow:hidden;aspect-ratio:1;}
+.ags-item img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease;}
+.ags-item:hover img{transform:scale(1.06);}
+
+/* Press / recognition */
+.about-press{background:var(--ink);padding:52px var(--pad);margin:0 calc(-1 * var(--pad));display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.ap-quote{font-family:var(--serif);font-size:clamp(1.3rem,2.2vw,2rem);font-style:italic;color:rgba(255,255,255,.72);line-height:1.5;margin-bottom:16px;}
+.ap-attr{font-family:var(--sans);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.28);}
+.ap-right{}
+.ap-feature-title{font-family:var(--sans);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:14px;}
+.ap-galleries{display:flex;flex-direction:column;gap:10px;}
+.ap-gal{font-family:var(--body);font-size:.9rem;color:rgba(255,255,255,.45);padding-left:14px;position:relative;}
+.ap-gal::before{content:'';position:absolute;left:0;top:50%;width:6px;height:1px;background:rgba(255,255,255,.2);}
+
+/* ═══════ COMMISSIONS ═══════ */
+.comm-sec{background:var(--white);}
+.comm-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
+h2.comm-title{font-family:var(--serif);font-size:clamp(1.8rem,2.8vw,2.8rem);font-weight:400;color:var(--ink);line-height:1.1;margin-bottom:18px;}
+h2.comm-title em{font-style:italic;}
+.comm-body{font-family:var(--body);font-size:.9rem;line-height:1.9;color:var(--drift);margin-bottom:32px;}
+.process{display:flex;flex-direction:column;margin-bottom:32px;}
+.proc-item{display:flex;gap:18px;padding:17px 0;border-bottom:1px solid var(--stone);}
+.proc-item:first-child{border-top:1px solid var(--stone);}
+.proc-n{font-family:var(--serif);font-size:1.25rem;color:var(--stone);line-height:1;flex-shrink:0;width:24px;padding-top:2px;}
+.proc-name{font-family:var(--sans);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--anchor);margin-bottom:3px;}
+.proc-desc{font-family:var(--body);font-size:.84rem;color:var(--drift);line-height:1.6;}
+.comm-sample{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:14px;}
+.comm-sample-item{aspect-ratio:1;overflow:hidden;background:var(--linen);}
+.comm-sample-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+.comm-sample-item:hover img{transform:scale(1.06);}
+.comm-note{font-family:var(--body);font-style:italic;font-size:.8rem;color:var(--pebble);text-align:center;line-height:1.6;}
+
+/* ═══════ CONTACT ═══════ */
+.contact-sec{background:var(--linen);}
+.contact-wrap{max-width:660px;margin:0 auto;}
+.contact-hd{text-align:center;margin-bottom:44px;}
+h2.ct-title{font-family:var(--serif);font-size:clamp(1.8rem,2.8vw,2.8rem);font-weight:400;color:var(--ink);margin-bottom:11px;line-height:1.08;}
+h2.ct-title em{font-style:italic;}
+.ct-sub{font-family:var(--body);font-size:.9rem;color:var(--drift);line-height:1.8;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px;}
+.fg{display:flex;flex-direction:column;gap:5px;margin-bottom:13px;}
+.fg label{font-family:var(--sans);font-size:.53rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pebble);}
+.fg input,.fg select,.fg textarea{background:var(--white);border:1px solid var(--stone);color:var(--ink);font-family:var(--body);font-size:.92rem;padding:11px 14px;outline:none;transition:border-color .25s;resize:none;cursor:none;appearance:none;-webkit-appearance:none;min-height:44px;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--ink);}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--stone);}
+.fg select{color:var(--anchor);}
+.form-submit{width:100%;background:var(--ink);color:var(--white);border:none;font-family:var(--sans);font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;padding:17px;cursor:none;transition:background .25s,transform .25s;margin-top:4px;min-height:52px;}
+.form-submit:hover{background:var(--tide);transform:translateY(-2px);}
+
+/* FOOTER */
+footer{background:var(--ink);padding:56px var(--pad) 34px;}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:26px;}
+.ft-logo{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:rgba(255,255,255,.78);margin-bottom:4px;}
+.ft-sub{font-family:var(--sans);font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.18);margin-bottom:13px;}
+.ft-tag{font-family:var(--body);font-style:italic;font-size:.84rem;color:rgba(255,255,255,.24);line-height:1.75;max-width:240px;margin-bottom:20px;}
+.ft-soc{display:flex;gap:9px;}
+.ft-soc a{width:32px;height:32px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.26);text-decoration:none;font-size:.72rem;transition:all .25s;cursor:none;}
+.ft-soc a:hover{border-color:rgba(255,255,255,.38);color:rgba(255,255,255,.7);}
+.ft-col-lbl{font-family:var(--sans);font-size:.5rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.16);margin-bottom:13px;}
+.ft-ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.ft-ul a{font-family:var(--body);font-size:.84rem;color:rgba(255,255,255,.26);text-decoration:none;transition:color .25s;cursor:none;}
+.ft-ul a:hover{color:rgba(255,255,255,.65);}
+.ft-bot{display:flex;justify-content:space-between;align-items:center;}
+.ft-copy{font-family:var(--sans);font-size:.52rem;letter-spacing:.1em;color:rgba(255,255,255,.15);}
+.ft-ig{font-family:var(--sans);font-size:.52rem;letter-spacing:.16em;color:rgba(255,255,255,.22);text-decoration:none;transition:color .25s;cursor:none;}
+.ft-ig:hover{color:rgba(255,255,255,.6);}
+
+/* REVEAL */
+.rv{opacity:1;transform:none;}
+.rv.in{opacity:1;transform:none;}
+.d1{}.d2{}.d3{}
+
+/* ═══════════════════════════════════════
+   MOBILE  ≤ 768px
+═══════════════════════════════════════ */
+@media(max-width:768px){
+  :root{--pad:20px;}
+  body{cursor:auto;}
+  .cur,.curR{display:none;}
+  .btn-light,.btn-ghost-w,.btn-dark,.btn-wh,.filter-btn,.chip,.hero-card,.art-card,.comm-sample-item,.ft-soc a{cursor:pointer;}
+  .fg input,.fg select,.fg textarea,.form-submit{cursor:pointer;}
+
+  /* Nav */
+  nav{padding:17px var(--pad);}
+  nav.stuck{padding:13px var(--pad);}
+  .nav-links{display:none;}
+  .nav-hamburger{display:flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:10px;cursor:pointer;}
+  /* Default: white over hero */
+  .nav-hamburger span{display:block;width:22px;height:1.5px;background:rgba(255,255,255,.8);transition:background .3s;}
+  /* Stuck: dark over white nav */
+  nav.stuck .nav-hamburger span{background:var(--ink);}
+
+  /* Hero */
+  .hero{min-height:100svh;}
+  .hero-content{grid-template-columns:1fr;padding:0 var(--pad) 48px;}
+  h1.hero-title{font-size:2.35rem;margin-bottom:20px;}
+  .hero-right{display:none;}
+  .hero-btns{flex-direction:column;gap:10px;}
+  .btn-light,.btn-ghost-w{width:100%;text-align:center;padding:15px;}
+
+  /* Press */
+  .press{padding:13px var(--pad);flex-direction:column;align-items:flex-start;gap:7px;}
+  .press-div{display:none;}
+  .press-item{font-size:.78rem;white-space:normal;}
+
+  /* Sections */
+  section{padding:56px var(--pad);}
+
+  /* Shop */
+  .shop-top{flex-direction:column;align-items:flex-start;gap:5px;}
+  .shop-grid{grid-template-columns:1fr 1fr;gap:14px;}
+  .art-card-img{margin-bottom:9px;}
+  .art-card-ov{display:none;}
+  .avail-badge{font-size:.44rem;padding:3px 7px;}
+  .art-card-title{font-size:.86rem;}
+  .art-card-details{flex-direction:column;align-items:flex-start;gap:1px;}
+  .art-card-details span:first-child{font-size:.52rem;}
+  .art-card-tap{display:block;margin-top:7px;font-family:var(--sans);font-size:.55rem;letter-spacing:.13em;text-transform:uppercase;color:var(--drift);border-bottom:1px solid var(--stone);padding-bottom:1px;text-decoration:none;}
+
+  /* Featured */
+  .feature-sec{grid-template-columns:1fr;}
+  .feature-img{min-height:240px;max-height:320px;}
+  .feature-text{padding:36px var(--pad);}
+  h2.f-title{font-size:1.6rem;}
+  .btn-wh{width:100%;text-align:center;padding:15px;}
+
+  /* ABOUT */
+  .about-intro{grid-template-columns:1fr;gap:40px;margin-bottom:48px;}
+  .about-aside{order:-1;}/* Portrait first on mobile */
+  .about-portrait img{aspect-ratio:3/2;object-fit:cover;object-position:center top;}
+  h2.about-title{font-size:2rem;}
+  .about-lead{font-size:1rem;}
+  .about-timeline{margin-top:48px;padding-top:44px;}
+  /* Collapse timeline to single column on mobile */
+  .timeline{display:flex;flex-direction:column;gap:0;}
+  .tl-spine{display:none;}
+  .tl-left{text-align:left;padding:0 0 36px 0;border-left:2px solid var(--stone);padding-left:18px;}
+  .tl-right{padding:0 0 36px 18px;border-left:2px solid var(--stone);}
+  .tl-empty{display:none;}
+  .about-gallery-strip{grid-template-columns:1fr 1fr;margin:40px 0;}
+  .about-press{grid-template-columns:1fr;gap:32px;padding:40px var(--pad);margin:0 calc(-1 * var(--pad));}
+
+  /* Commissions */
+  .comm-inner{grid-template-columns:1fr;gap:36px;}
+  .comm-right{display:none;}
+
+  /* Contact */
+  .frow{grid-template-columns:1fr;gap:0;}
+
+  /* Footer */
+  footer{padding:40px var(--pad) 26px;}
+  .ft-grid{grid-template-columns:1fr;gap:28px;padding-bottom:28px;}
+  .ft-grid>div:nth-child(2),.ft-grid>div:nth-child(3){display:none;}
+  .ft-bot{flex-direction:column;align-items:flex-start;gap:6px;}
+}
+
+/* TABLET 769–1024 */
+@media(min-width:769px) and (max-width:1024px){
+  :root{--pad:36px;}
+  .shop-grid{grid-template-columns:repeat(2,1fr);gap:18px;}
+  .hero-content{padding:0 var(--pad) 52px;}
+  .hero-right{display:none;}
+  h1.hero-title{font-size:3rem;}
+  .about-intro{grid-template-columns:1fr 1fr;gap:52px;}
+  .feature-sec{grid-template-columns:1fr 1fr;}
+  .comm-inner{gap:44px;}
+  .ft-grid{grid-template-columns:1.5fr 1fr 1fr;gap:32px;}
+  .about-press{padding:44px var(--pad);margin:0 calc(-1 * var(--pad));}
+}
+</style>
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="curR" id="curR"></div>
+
+<!-- MOBILE DRAWER -->
+<div class="mob-drawer" id="mobDrawer">
+  <div class="mob-drawer-logo">CJ Davitt</div>
+  <button class="mob-drawer-close" id="drawerClose">✕</button>
+  <ul class="mob-nav-list">
+    <li><a href="#shop" class="mob-link">Works</a></li>
+    <li><a href="#about" class="mob-link">About</a></li>
+    <li><a href="#commissions" class="mob-link">Commissions</a></li>
+    <li><a href="#contact" class="mob-link">Contact</a></li>
+  </ul>
+  <a href="#shop" class="mob-nav-cta mob-link">Shop the Collection</a>
+  <div class="mob-social">
+    <a href="https://instagram.com/craigjamesd" target="_blank">@craigjamesd</a>
+    <a href="/cdn-cgi/l/email-protection#d0b8b5bcbcbf90b3a2b1b9b7bab1bdb5a3b4feb3bfbd">Email</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-brand">
+    <span class="nav-brand-name">CJ Davitt</span>
+    <span class="nav-brand-sub">Angling Artist · New Jersey</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#shop">Works</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#commissions">Commissions</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#shop" class="nav-cta">Shop Now</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO — real seascape painting as background -->
+<div class="hero">
+  <div class="hero-bg">
+    <img src="images/cover-row-no5.jpg" alt="Row No. 5 — oil on canvas by CJ Davitt" />
+  </div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-tag">Original Oil Paintings</div>
+      <h1 class="hero-title">Paintings from<br>the <em>Jersey Shore</em></h1>
+      <div class="hero-btns">
+        <a href="#shop" class="btn-light">Shop the Collection</a>
+        <a href="#commissions" class="btn-ghost-w">Commission a Piece</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-card-dot"></div>
+        <div class="hero-card-info">
+          <div class="hero-card-title">Six Bobbers</div>
+          <div class="hero-card-meta">Oil on Canvas · 36″ × 36″</div>
+        </div>
+        <div class="hero-card-price">$2,400</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-dot"></div>
+        <div class="hero-card-info">
+          <div class="hero-card-title">Bushel of Blues</div>
+          <div class="hero-card-meta">Oil on Canvas · 24″ × 36″</div>
+        </div>
+        <div class="hero-card-price">$3,200</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-dot sold"></div>
+        <div class="hero-card-info">
+          <div class="hero-card-title">Tied Fast</div>
+          <div class="hero-card-meta">Oil on Panel · 11″ × 14″</div>
+        </div>
+        <div class="hero-card-price" style="color:rgba(255,255,255,.3)">Sold</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRESS -->
+<div class="press">
+  <span class="press-lbl">As Seen In</span>
+  <div class="press-div"></div>
+  <span class="press-item"><strong>On The Water Magazine</strong> — 2026 Angler's Almanac · Featured Angling Artist</span>
+  <div class="press-div"></div>
+  <span class="press-item">Frederick Gallery · Autumn Elise Gallery · Noon Designs</span>
+</div>
+
+<section class="about-sec" id="about">
+
+  <div class="about-intro rv">
+    <!-- LEFT: the story -->
+    <div class="about-intro-text">
+      <div class="eyebrow">About the Artist</div>
+      <h2 class="about-title">CJ Davitt —<br><em>Angling Artist</em></h2>
+
+      <p class="about-lead">
+        CJ Davitt is a New Jersey painter whose work is inseparable from the salt water that has shaped nearly every chapter of his life.
+      </p>
+
+      <p class="about-body">
+        Growing up, his family summered in Lavallette on the shores of Barnegat Bay. Those early years — fishing for snappers with bobber rigs, crabbing on the family's old Dixie, watching the light shift over the open water — became the visual vocabulary he would later pour onto canvas.
+      </p>
+
+      <div class="about-pull">
+        "I started painting bobbers because, when I was young, that's what we did at the shore. We fished for snappers with bobber rigs in the bay."
+      </div>
+
+      <p class="about-body">
+        Today, CJ lives near Sandy Hook with his wife and two kids, just a short walk from the water. By day he works as a <strong>physician's assistant in orthopedic surgery</strong> — a demanding career that makes the studio all the more essential. Painting, like fishing, forces him to be completely present. It is his reset.
+      </p>
+
+      <p class="about-body">
+        His transition from colored pencil illustration to oil painting began during the pandemic, when he had more time at home and a hunger for a new challenge. He taught himself to work with oil on canvas — navigating its slower dry times, its tendency to blend when you least want it to, its occasional happy accidents. <strong>A misplaced brushstroke once became an entire flock of seagulls.</strong> He kept them.
+      </p>
+
+      <p class="about-body">
+        His technique places heavy emphasis on <strong>shadow, texture, and hyper-realism</strong>. He occasionally trades his brush for a palette knife, loading thick paint that dries with a sculptural surface — the bobbers in his paintings look like you could reach out and pick them up. His goal: that if someone sees a painting of his without a signature, they'd still know it was his.
+      </p>
+
+      <div class="about-pull">
+        "I just paint the things I like because they have meaning to me. If people enjoy them or find meaning in my work, that's great."
+      </div>
+      <!-- The Drifter editorial -->
+      <div style="margin:32px 0;position:relative;">
+        <img src="images/the-drifter.jpg" alt="The Drifter — oil on canvas, 30×40, CJ Davitt"
+             style="width:100%;display:block;aspect-ratio:4/5;object-fit:cover;object-position:center top;"/>
+        <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(15,31,46,.72);padding:12px 18px;">
+          <span style="font-family:var(--body);font-style:italic;font-size:.82rem;color:rgba(255,255,255,.75);">The Drifter, 30″ × 40″, oil on canvas</span>
+        </div>
+      </div>
+
+      <p class="about-body">
+        Weathered bobbers. Bushels of blue crabs. Stormy open water. Fishermen in yellow slickers. Rope knots. Striped bass. Shark teeth. Seaside shops. Every subject is a product of where CJ was raised and where he lives — the Jersey Shore, in all its battered, beautiful, salt-stained glory.
+      </p>
+    </div>
+
+    <!-- RIGHT: portrait + credentials -->
+    <div class="about-aside rv d1">
+      <div class="about-portrait">
+        <!-- Using the seascape as an atmospheric portrait placeholder — replace with a photo of CJ -->
+        <img src="images/cj-davitt-artist.jpg" alt="CJ Davitt at a gallery opening" />
+        <div class="about-portrait-cap">
+          <div class="apc-name">CJ Davitt</div>
+          <div class="apc-sub">Angling Artist · Sandy Hook, NJ</div>
+        </div>
+      </div>
+
+      <div class="creds">
+        <div class="cred-item">
+          <div class="cred-title">Medium</div>
+          <div class="cred-desc">Oil on canvas &amp; panel, colored pencil on paper</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-title">Based In</div>
+          <div class="cred-desc">Sandy Hook, New Jersey</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-title">Recognition</div>
+          <div class="cred-desc">2026 Angling Artist — On The Water Magazine, Angler's Almanac</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-title">Galleries</div>
+          <div class="cred-desc">Frederick Gallery, Spring Lake &nbsp;·&nbsp; Autumn Elise, Rumson &nbsp;·&nbsp; Noon Designs, Bay Head</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-title">Instagram</div>
+          <div class="cred-desc"><a href="https://instagram.com/craigjamesd" target="_blank">@craigjamesd</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Timeline -->
+  <div class="about-timeline rv">
+    <div class="timeline-header">
+      <h3 class="tl-title">The <em>Story</em></h3>
+      <p class="tl-sub">From Barnegat Bay to gallery walls</p>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-left">
+        <div class="tl-year">Early Years</div>
+        <div class="tl-event-title">Summers on Barnegat Bay</div>
+        <div class="tl-event-body">Growing up in New Jersey, CJ's family summered in Lavallette. Fishing for snappers with bobber rigs, crabbing off the dock, and spending long days on the family boat planted the seeds of a lifelong love of the coast.</div>
+      </div>
+      <div class="tl-spine">
+        <div class="tl-spine-line"></div>
+        <div class="tl-node"></div>
+        <div class="tl-spine-line"></div>
+      </div>
+      <div class="tl-empty"></div>
+
+      <div class="tl-empty"></div>
+      <div class="tl-spine">
+        <div class="tl-spine-line"></div>
+        <div class="tl-node"></div>
+        <div class="tl-spine-line"></div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-year">Pre-pandemic</div>
+        <div class="tl-event-title">Colored Pencil &amp; Logo Work</div>
+        <div class="tl-event-body">Like his father before him, CJ developed a talent for illustration — drawing designs for fishing buddies to use on hats and boat logos. His hyperrealist pencil work, focused on the minute detail of fish scales and tackle, built the foundation for everything to come.</div>
+      </div>
+
+      <div class="tl-left">
+        <div class="tl-year">2020</div>
+        <div class="tl-event-title">First Oil on Canvas</div>
+        <div class="tl-event-body">The pandemic gave him time and a hunger for challenge. He picked up a brush and started experimenting with oil paint in his Lavallette beach home studio. The learning curve was steep — oil stays wet longer, colors blend unexpectedly — but a happy accident involving a misplaced white streak became a flock of seagulls, and he was hooked.</div>
+      </div>
+      <div class="tl-spine">
+        <div class="tl-spine-line"></div>
+        <div class="tl-node"></div>
+        <div class="tl-spine-line"></div>
+      </div>
+      <div class="tl-empty"></div>
+
+      <div class="tl-empty"></div>
+      <div class="tl-spine">
+        <div class="tl-spine-line"></div>
+        <div class="tl-node"></div>
+        <div class="tl-spine-line"></div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-year">2021–2023</div>
+        <div class="tl-event-title">Finding His Identity</div>
+        <div class="tl-event-body">The bobber paintings became CJ's signature — familiar, nostalgic objects rendered with stunning realism. He developed a style heavy on shadow, texture, and depth. The palette knife entered the process, enabling him to build thick, tactile surfaces that made his subjects pop off the canvas in a way no brush alone could achieve.</div>
+      </div>
+
+      <div class="tl-left">
+        <div class="tl-year">2024–2025</div>
+        <div class="tl-event-title">Gallery Recognition</div>
+        <div class="tl-event-body">Thanks to encouragement from his wife and quickly running out of wall space at home, CJ began placing work in New Jersey galleries — Frederick Gallery in Spring Lake, Autumn Elise Gallery in Rumson, and Noon Designs in Bay Head. The response from collectors was immediate.</div>
+      </div>
+      <div class="tl-spine">
+        <div class="tl-spine-line"></div>
+        <div class="tl-node"></div>
+        <div class="tl-spine-line"></div>
+      </div>
+      <div class="tl-empty"></div>
+
+      <div class="tl-empty"></div>
+      <div class="tl-spine">
+        <div class="tl-spine-line"></div>
+        <div class="tl-node"></div>
+        <div class="tl-spine-line"></div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-year">2026</div>
+        <div class="tl-event-title">On The Water — Featured Angling Artist</div>
+        <div class="tl-event-body">CJ was selected as the featured Angling Artist in the 2026 On The Water Angler's Almanac — the Mid-Atlantic's premier fishing publication. The multi-page feature introduced his work to an entirely new audience of collectors who share his love of the coast.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Press / dark quote block -->
+  <div class="about-press rv">
+    <div>
+      <p class="ap-quote">"Over a short time, Davitt has developed a unique style that makes his work easy to identify even without his signature."</p>
+      <div class="ap-attr">— On The Water Magazine, January 2026</div>
+    </div>
+    <div class="ap-right">
+      <div class="ap-feature-title">Available At</div>
+      <div class="ap-galleries">
+        <div class="ap-gal">Frederick Gallery — Spring Lake, NJ</div>
+        <div class="ap-gal">Autumn Elise Gallery — Rumson, NJ</div>
+        <div class="ap-gal">Noon Designs — Bay Head, NJ</div>
+        <div class="ap-gal">craigjamesd.com — Online</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- COMMISSIONS -->
+<!-- SHOP — real paintings -->
+<section class="shop-sec" id="shop">
+  <div class="rv">
+    <div class="shop-top">
+      <div>
+        <div class="eyebrow">Available Works</div>
+        <h2 class="sec-title">The <em>Collection</em></h2>
+      </div>
+    </div>
+    <div class="filters">
+      <button class="filter-btn active" onclick="filterGallery('all',this)">All Works</button>
+      <button class="filter-btn" onclick="filterGallery('bobbers',this)">Bobbers &amp; Tackle</button>
+      <button class="filter-btn" onclick="filterGallery('seascape',this)">Seascapes</button>
+      <button class="filter-btn" onclick="filterGallery('marine',this)">Marine Life</button>
+    </div>
+  </div>
+
+  <div class="shop-grid rv d1" id="shopGrid">
+
+    <div class="art-card" data-cat="bobbers">
+      <div class="art-card-img">
+        <span class="avail-badge av">Available</span>
+        <img src="images/six-bobbers.jpg" alt="Six Bobbers — oil on canvas" loading="lazy"/>
+        <div class="art-card-ov">
+          <a href="#contact" class="ov-btn">Inquire to Purchase</a>
+          <a href="#" class="ov-btn sec">View Details</a>
+        </div>
+      </div>
+      <div class="art-card-body">
+        <div class="art-card-artist">CJ Davitt</div>
+        <div class="art-card-title">Six Bobbers</div>
+        <div class="art-card-details">
+          <span>Oil on Canvas · 36″ × 36″</span>
+          <span class="art-card-price">$2,400</span>
+        </div>
+        <a href="#contact" class="art-card-tap">Inquire →</a>
+      </div>
+    </div>
+
+    <div class="art-card" data-cat="marine">
+      <div class="art-card-img">
+        <span class="avail-badge av">Available</span>
+        <img src="images/bushel-of-blues.jpg" alt="Bushel of Blues — oil on canvas" loading="lazy"/>
+        <div class="art-card-ov">
+          <a href="#contact" class="ov-btn">Inquire to Purchase</a>
+          <a href="#" class="ov-btn sec">View Details</a>
+        </div>
+      </div>
+      <div class="art-card-body">
+        <div class="art-card-artist">CJ Davitt</div>
+        <div class="art-card-title">Bushel of Blues</div>
+        <div class="art-card-details">
+          <span>Oil on Canvas · 24″ × 36″</span>
+          <span class="art-card-price">$3,200</span>
+        </div>
+        <a href="#contact" class="art-card-tap">Inquire →</a>
+      </div>
+    </div>
+
+    <div class="art-card" data-cat="seascape">
+      <div class="art-card-img">
+        <span class="avail-badge av">Available</span>
+        <img src="images/storm-horizon.jpg" alt="Storm Horizon — oil on canvas" loading="lazy"/>
+        <div class="art-card-ov">
+          <a href="#contact" class="ov-btn">Inquire to Purchase</a>
+          <a href="#" class="ov-btn sec">View Details</a>
+        </div>
+      </div>
+      <div class="art-card-body">
+        <div class="art-card-artist">CJ Davitt</div>
+        <div class="art-card-title">Storm Horizon</div>
+        <div class="art-card-details">
+          <span>Oil on Canvas · 18″ × 18″</span>
+          <span class="art-card-price">$1,800</span>
+        </div>
+        <a href="#contact" class="art-card-tap">Inquire →</a>
+      </div>
+    </div>
+
+    <div class="art-card" data-cat="bobbers">
+      <div class="art-card-img">
+        <span class="avail-badge av">Available</span>
+        <img src="images/red-white-bobber.jpg" alt="Red & White — oil on canvas" loading="lazy"/>
+        <div class="art-card-ov">
+          <a href="#contact" class="ov-btn">Inquire to Purchase</a>
+          <a href="#" class="ov-btn sec">View Details</a>
+        </div>
+      </div>
+      <div class="art-card-body">
+        <div class="art-card-artist">CJ Davitt</div>
+        <div class="art-card-title">Red &amp; White</div>
+        <div class="art-card-details">
+          <span>Oil on Canvas · 16″ × 20″</span>
+          <span class="art-card-price">$1,400</span>
+        </div>
+        <a href="#contact" class="art-card-tap">Inquire →</a>
+      </div>
+    </div>
+
+    <div class="art-card" data-cat="marine">
+      <div class="art-card-img">
+        <span class="avail-badge sold">Sold</span>
+        <img src="images/tied-fast.jpg" alt="Tied Fast — oil on panel" style="filter:grayscale(15%)" loading="lazy"/>
+        <div class="art-card-ov">
+          <a href="#commissions" class="ov-btn">Request Similar</a>
+        </div>
+      </div>
+      <div class="art-card-body">
+        <div class="art-card-artist">CJ Davitt</div>
+        <div class="art-card-title">Tied Fast</div>
+        <div class="art-card-details">
+          <span>Oil on Panel · 11″ × 14″</span>
+          <span class="art-card-price" style="color:var(--pebble)">Sold</span>
+        </div>
+        <a href="#commissions" class="art-card-tap">Request Similar →</a>
+      </div>
+    </div>
+
+    <div class="art-card" data-cat="bobbers">
+      <div class="art-card-img">
+        <span class="avail-badge av">Available</span>
+        <img src="images/six-bobbers.jpg" alt="Blue Bobbers — oil on canvas" style="object-position:left center" loading="lazy"/>
+        <div class="art-card-ov">
+          <a href="#contact" class="ov-btn">Inquire to Purchase</a>
+          <a href="#" class="ov-btn sec">View Details</a>
+        </div>
+      </div>
+      <div class="art-card-body">
+        <div class="art-card-artist">CJ Davitt</div>
+        <div class="art-card-title">Blue Bobbers</div>
+        <div class="art-card-details">
+          <span>Oil on Canvas · 30″ × 30″</span>
+          <span class="art-card-price">$2,100</span>
+        </div>
+        <a href="#contact" class="art-card-tap">Inquire →</a>
+      </div>
+    </div>
+
+
+    <div class="art-card" data-cat="figures">
+      <div class="art-card-img">
+        <span class="avail-badge av">Available</span>
+        <img src="images/wrong-cork.jpg" alt="Wrong Cork — oil on canvas" loading="lazy"/>
+        <div class="art-card-ov">
+          <a href="#contact" class="ov-btn">Inquire to Purchase</a>
+          <a href="#" class="ov-btn sec">View Details</a>
+        </div>
+      </div>
+      <div class="art-card-body">
+        <div class="art-card-artist">CJ Davitt</div>
+        <div class="art-card-title">Wrong Cork</div>
+        <div class="art-card-details">
+          <span>Oil on Canvas · 30″ × 24″</span>
+          <span class="art-card-price">$2,100</span>
+        </div>
+        <a href="#contact" class="art-card-tap">Inquire →</a>
+      </div>
+    </div>
+
+    <div class="art-card" data-cat="figures">
+      <div class="art-card-img">
+        <span class="avail-badge av">Available</span>
+        <img src="images/the-road-home.jpg" alt="Landscape silhouette — oil on canvas" loading="lazy"/>
+        <div class="art-card-ov">
+          <a href="#contact" class="ov-btn">Inquire to Purchase</a>
+          <a href="#" class="ov-btn sec">View Details</a>
+        </div>
+      </div>
+      <div class="art-card-body">
+        <div class="art-card-artist">CJ Davitt</div>
+        <div class="art-card-title">The Road Home</div>
+        <div class="art-card-details">
+          <span>Oil on Canvas · 36″ × 48″</span>
+          <span class="art-card-price">$3,800</span>
+        </div>
+        <a href="#contact" class="art-card-tap">Inquire →</a>
+      </div>
+    </div>
+
+    <div class="art-card" data-cat="marine">
+      <div class="art-card-img">
+        <span class="avail-badge av">Available</span>
+        <img src="images/megalodon.jpg" alt="Megalodon tooth — colored pencil" loading="lazy"/>
+        <div class="art-card-ov">
+          <a href="#contact" class="ov-btn">Inquire to Purchase</a>
+          <a href="#" class="ov-btn sec">View Details</a>
+        </div>
+      </div>
+      <div class="art-card-body">
+        <div class="art-card-artist">CJ Davitt</div>
+        <div class="art-card-title">Megalodon</div>
+        <div class="art-card-details">
+          <span>Colored Pencil · 18″ × 24″</span>
+          <span class="art-card-price">$1,600</span>
+        </div>
+        <a href="#contact" class="art-card-tap">Inquire →</a>
+      </div>
+    </div>
+
+  </div>
+
+  
+    <div class="art-card" data-cat="marine">
+      <div class="art-card-img">
+        <span class="avail-badge sold">Sold</span>
+        <img src="images/the-claws.jpg" alt="Crab Claws — oil on canvas" loading="lazy" style="filter:grayscale(20%)"/>
+        <div class="art-card-ov">
+          <a href="#commissions" class="ov-btn">Request Similar</a>
+        </div>
+      </div>
+      <div class="art-card-body">
+        <div class="art-card-artist">CJ Davitt</div>
+        <div class="art-card-title">The Claws</div>
+        <div class="art-card-details">
+          <span>Oil on Canvas · 30″ × 40″</span>
+          <span class="art-card-price" style="color:var(--pebble)">Sold</span>
+        </div>
+        <a href="#commissions" class="art-card-tap">Request Similar →</a>
+      </div>
+    </div>
+
+    <div class="art-card" data-cat="bobbers">
+      <div class="art-card-img">
+        <span class="avail-badge sold">Sold</span>
+        <img src="images/red-white-no2.jpg" alt="Red Bobber — oil on canvas" loading="lazy" style="filter:grayscale(20%)"/>
+        <div class="art-card-ov">
+          <a href="#commissions" class="ov-btn">Request Similar</a>
+        </div>
+      </div>
+      <div class="art-card-body">
+        <div class="art-card-artist">CJ Davitt</div>
+        <div class="art-card-title">Red &amp; White No. 2</div>
+        <div class="art-card-details">
+          <span>Oil on Canvas · 16″ × 20″</span>
+          <span class="art-card-price" style="color:var(--pebble)">Sold</span>
+        </div>
+        <a href="#commissions" class="art-card-tap">Request Similar →</a>
+      </div>
+    </div>
+
+    <div class="art-card" data-cat="marine">
+      <div class="art-card-img">
+        <span class="avail-badge av">Available</span>
+        <img src="images/yellowfin.jpg" alt="Yellowfin Tuna — colored pencil" loading="lazy"/>
+        <div class="art-card-ov">
+          <a href="#contact" class="ov-btn">Inquire to Purchase</a>
+          <a href="#" class="ov-btn sec">View Details</a>
+        </div>
+      </div>
+      <div class="art-card-body">
+        <div class="art-card-artist">CJ Davitt</div>
+        <div class="art-card-title">Yellowfin</div>
+        <div class="art-card-details">
+          <span>Colored Pencil · 30″ × 21″</span>
+          <span class="art-card-price">$1,800</span>
+        </div>
+        <a href="#contact" class="art-card-tap">Inquire →</a>
+      </div>
+    </div>
+
+    <div class="art-card" data-cat="seascape">
+      <div class="art-card-img">
+        <span class="avail-badge av">Available</span>
+        <img src="images/october-fog.jpg" alt="Misty Tree — oil on canvas" loading="lazy"/>
+        <div class="art-card-ov">
+          <a href="#contact" class="ov-btn">Inquire to Purchase</a>
+          <a href="#" class="ov-btn sec">View Details</a>
+        </div>
+      </div>
+      <div class="art-card-body">
+        <div class="art-card-artist">CJ Davitt</div>
+        <div class="art-card-title">October Fog</div>
+        <div class="art-card-details">
+          <span>Oil on Canvas · 11″ × 14″</span>
+          <span class="art-card-price">$900</span>
+        </div>
+        <a href="#contact" class="art-card-tap">Inquire →</a>
+      </div>
+    </div>
+
+    <div class="art-card" data-cat="bobbers">
+      <div class="art-card-img">
+        <span class="avail-badge av">Available</span>
+        <img src="images/green-white-bobber.jpg" alt="Green Bobber — oil on canvas" loading="lazy"/>
+        <div class="art-card-ov">
+          <a href="#contact" class="ov-btn">Inquire to Purchase</a>
+          <a href="#" class="ov-btn sec">View Details</a>
+        </div>
+      </div>
+      <div class="art-card-body">
+        <div class="art-card-artist">CJ Davitt</div>
+        <div class="art-card-title">Green &amp; White</div>
+        <div class="art-card-details">
+          <span>Oil on Canvas · 10″ × 12″</span>
+          <span class="art-card-price">$850</span>
+        </div>
+        <a href="#contact" class="art-card-tap">Inquire →</a>
+      </div>
+    </div>
+
+  <div class="shop-footer rv">
+    <p>All works are original — painted in CJ's studio near Sandy Hook, NJ.</p>
+    <a href="#contact" class="btn-dark">Inquire About a Piece</a>
+  </div>
+</section>
+
+<!-- FEATURED PAINTING -->
+<div class="feature-sec rv">
+  <div class="feature-img">
+    <img src="images/six-bobbers.jpg" alt="Six Bobbers — featured work by CJ Davitt" loading="lazy"/>
+  </div>
+  <div class="feature-text">
+    <div class="f-eyebrow">Featured Work</div>
+    <h2 class="f-title">Six Bobbers</h2>
+    <div class="f-meta">Oil on Canvas · 2024 · 36″ × 36″</div>
+    <p class="f-desc">Six weathered fishing bobbers arranged across a white ground — each one bearing the chipped paint and salt-worn character of years on the water. A meditation on memory, childhood, and the bay.</p>
+    <div class="f-price-row">
+      <div class="f-price">$2,400</div>
+      <div class="f-size">Original · Unframed<br>Framing available</div>
+    </div>
+    <a href="#contact" class="btn-wh">Inquire to Purchase</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     ABOUT THE ARTIST
+═══════════════════════════════════ -->
+<section class="comm-sec" id="commissions">
+  <div class="comm-inner rv">
+    <div>
+      <div class="eyebrow">Custom Work</div>
+      <h2 class="comm-title">Commission an<br>original <em>painting</em></h2>
+      <p class="comm-body">A favorite fishing hole, a beloved piece of tackle, a family boat, a catch you'll never forget. CJ takes a limited number of commissions each year — each treated with the same care as his gallery work.</p>
+      <div class="process">
+        <div class="proc-item">
+          <div class="proc-n">01</div>
+          <div><div class="proc-name">Reach Out</div><div class="proc-desc">Share your subject, size ideas, and reference photos via the form below.</div></div>
+        </div>
+        <div class="proc-item">
+          <div class="proc-n">02</div>
+          <div><div class="proc-name">Quote &amp; Timeline</div><div class="proc-desc">CJ will respond with a price and estimated completion time.</div></div>
+        </div>
+        <div class="proc-item">
+          <div class="proc-n">03</div>
+          <div><div class="proc-name">Creation &amp; Delivery</div><div class="proc-desc">Shipped nationwide or available for local pickup in NJ. Framing available.</div></div>
+        </div>
+      </div>
+      <a href="#contact" class="btn-dark">Start a Commission</a>
+    </div>
+    <div class="comm-right rv d1">
+      <div class="comm-sample">
+        <div class="comm-sample-item"><img src="images/six-bobbers.jpg" alt="" loading="lazy"/></div>
+        <div class="comm-sample-item"><img src="images/bushel-of-blues.jpg" alt="" loading="lazy"/></div>
+        <div class="comm-sample-item"><img src="images/tied-fast.jpg" alt="" loading="lazy"/></div>
+        <div class="comm-sample-item"><img src="images/red-white-bobber.jpg" alt="" loading="lazy"/></div>
+      </div>
+      <p class="comm-note">Subjects range from bobbers and boats to marine life and open water.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-sec" id="contact">
+  <div class="contact-wrap">
+    <div class="contact-hd rv">
+      <div class="eyebrow" style="justify-content:center">Get In Touch</div>
+      <h2 class="ct-title">Let's <em>connect</em></h2>
+      <p class="ct-sub">Interested in a piece, considering a commission, or just want to talk fishing? CJ responds personally to every message.</p>
+    </div>
+    <form action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST" class="rv d1">
+      <div class="frow">
+        <div class="fg"><label>Name</label><input type="text" placeholder="Your name" autocomplete="name"/></div>
+        <div class="fg"><label>Email</label><input type="email" placeholder="your@email.com" autocomplete="email"/></div>
+      </div>
+      <div class="fg">
+        <label>What can I help you with?</label>
+        <select>
+          <option value="">Select one…</option>
+          <option>Purchase a Painting</option>
+          <option>Commission Request</option>
+          <option>Gallery / Press</option>
+          <option>General Question</option>
+        </select>
+      </div>
+      <div class="fg"><label>Message</label><textarea rows="5" placeholder="Tell me what you have in mind…"></textarea></div>
+      <input type="hidden" name="_subject" value="New inquiry — craigjamesd.com">
+      <button class="form-submit" type="submit">Send Message →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-grid">
+    <div>
+      <div class="ft-logo">CJ Davitt</div>
+      <div class="ft-sub">Angling Artist · Sandy Hook, NJ</div>
+      <p class="ft-tag">Original oil paintings rooted in the coast, the catch, and the quiet beauty of life by the water.</p>
+      <div class="ft-soc">
+        <a href="https://instagram.com/craigjamesd" target="_blank" aria-label="Instagram">IG</a>
+        <a href="/cdn-cgi/l/email-protection#7a121f1616153a19081b131d101b171f091e54191517" aria-label="Email">✉</a>
+      </div>
+    </div>
+    <div>
+      <div class="ft-col-lbl">Navigate</div>
+      <ul class="ft-ul">
+        <li><a href="#shop">Works</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#commissions">Commissions</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ft-col-lbl">Galleries</div>
+      <ul class="ft-ul">
+        <li><a href="#">Frederick Gallery · Spring Lake</a></li>
+        <li><a href="#">Autumn Elise · Rumson</a></li>
+        <li><a href="#">Noon Designs · Bay Head</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <span class="ft-copy">© 2026 CJ Davitt · craigjamesd.com</span>
+    <a href="https://instagram.com/craigjamesd" target="_blank" class="ft-ig">@craigjamesd</a>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const isTouchDevice = () => window.matchMedia('(hover:none)').matches;
+const cur = document.getElementById('cur');
+const curR = document.getElementById('curR');
+if(!isTouchDevice()){
+  document.addEventListener('mousemove', e => {
+    cur.style.left = e.clientX+'px'; cur.style.top = e.clientY+'px';
+    setTimeout(()=>{ curR.style.left = e.clientX+'px'; curR.style.top = e.clientY+'px'; }, 55);
+  });
+}
+
+const nav = document.getElementById('nav');
+const hamburger = document.getElementById('hamburger');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('stuck', window.scrollY > 60);
+});
+
+const drawer = document.getElementById('mobDrawer');
+const drawerClose = document.getElementById('drawerClose');
+hamburger.addEventListener('click', () => {
+  drawer.style.display = 'flex';
+  requestAnimationFrame(() => drawer.classList.add('open'));
+  document.body.style.overflow = 'hidden';
+});
+function closeDrawer(){
+  drawer.classList.remove('open');
+  setTimeout(() => { drawer.style.display='none'; document.body.style.overflow=''; }, 350);
+}
+drawerClose.addEventListener('click', closeDrawer);
+document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', closeDrawer));
+
+function filterGallery(cat, btn){
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.art-card').forEach(card => {
+    card.style.display = (cat==='all' || card.dataset.cat===cat) ? '' : 'none';
+  });
+}
+
+</script>
+</body>
+</html>
