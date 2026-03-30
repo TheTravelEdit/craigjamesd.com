@@ -743,10 +743,18 @@ footer{background:var(--ink);padding:56px var(--pad) 34px;}
       <h2 class="ct-title">Let's <em>connect</em></h2>
       <p class="ct-sub">Interested in a piece, considering a commission, or just want to talk fishing? CJ responds personally to every message.</p>
     </div>
-    <form action="https://formspree.io/f/xkopjqja" method="POST">
+    <div id="contactForm">
       <div class="frow">
         <div class="fg"><label>Name</label><input type="text" name="name" placeholder="Your name" autocomplete="name"/></div>
         <div class="fg"><label>Email</label><input type="email" name="email" placeholder="your@email.com" autocomplete="email"/></div>
+      </div>
+      <div class="frow">
+        <div class="fg"><label>Phone (optional)</label><input type="tel" name="phone" placeholder="(732) 555-0100" autocomplete="tel"/></div>
+        <div class="fg"></div>
+      </div>
+      <div class="fg">
+        <label>Painting (if applicable)</label>
+        <input type="text" id="inquiryPainting" name="painting" placeholder="e.g. Six Bobbers" autocomplete="off"/>
       </div>
       <div class="fg">
         <label>What can I help you with?</label>
@@ -759,9 +767,8 @@ footer{background:var(--ink);padding:56px var(--pad) 34px;}
         </select>
       </div>
       <div class="fg"><label>Message</label><textarea name="message" rows="5" placeholder="Tell me what you have in mind…"></textarea></div>
-      <input type="hidden" name="_subject" value="New inquiry — craigjamesd.com">
-      <button class="form-submit" type="submit">Send Message →</button>
-    </form>
+      <button class="form-submit" type="button" onclick="submitInquiry()">Send Message →</button>
+    </div>
   </div>
 </section>
 
@@ -828,5 +835,84 @@ function filterGallery(cat, btn){
   });
 }
 </script>
+
+<script>
+const CJ_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwmyK0ljJsRQG3XXsWIAwr_cNyMuwnvgYblWskEZlrDgWVf4pMSiSut4yK_T68cwBePOA/exec';
+
+// Pre-fill painting title if coming from a gallery Inquire click
+function setInquiryPainting(title) {
+  const sel = document.getElementById('inquiryPainting');
+  if (sel) sel.value = title;
+  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+}
+
+async function submitInquiry() {
+  const btn = document.querySelector('.form-submit');
+  const nameEl = document.querySelector('[name="name"]');
+  const emailEl = document.querySelector('[name="email"]');
+  const msgEl = document.querySelector('[name="message"]');
+  const typeEl = document.querySelector('[name="inquiry"]');
+  const paintingEl = document.getElementById('inquiryPainting');
+  const phoneEl = document.querySelector('[name="phone"]');
+
+  // Basic validation
+  if (!nameEl.value.trim()) { showFormMsg('Please enter your name.', 'error'); return; }
+  if (!emailEl.value.trim()) { showFormMsg('Please enter your email.', 'error'); return; }
+  if (!msgEl.value.trim()) { showFormMsg('Please enter a message.', 'error'); return; }
+
+  // Split name
+  const nameParts = nameEl.value.trim().split(' ');
+  const firstName = nameParts[0];
+  const lastName = nameParts.slice(1).join(' ') || '';
+
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch(CJ_SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify({
+        action: 'submit_inquiry',
+        firstName,
+        lastName,
+        email: emailEl.value.trim(),
+        phone: phoneEl ? phoneEl.value.trim() : '',
+        inquiryType: typeEl ? typeEl.value : '',
+        paintingTitle: paintingEl ? paintingEl.value : '',
+        message: msgEl.value.trim(),
+      })
+    });
+    const data = await res.json();
+    if (data.success) {
+      showFormMsg('Thank you — CJ will be in touch soon.', 'success');
+      nameEl.value = ''; emailEl.value = ''; msgEl.value = '';
+      if (typeEl) typeEl.value = '';
+      if (paintingEl) paintingEl.value = '';
+      if (phoneEl) phoneEl.value = '';
+    } else {
+      showFormMsg('Something went wrong. Please email hello@craigjamesd.com directly.', 'error');
+    }
+  } catch(e) {
+    showFormMsg('Something went wrong. Please email hello@craigjamesd.com directly.', 'error');
+  }
+
+  btn.textContent = 'Send Message →';
+  btn.disabled = false;
+}
+
+function showFormMsg(msg, type) {
+  let el = document.getElementById('formMsg');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'formMsg';
+    el.style.cssText = 'padding:12px 16px;margin-top:12px;font-family:var(--sans);font-size:.82rem;border-radius:4px;';
+    document.getElementById('contactForm').appendChild(el);
+  }
+  el.textContent = msg;
+  el.style.background = type === 'success' ? '#d4edda' : '#f8d7da';
+  el.style.color = type === 'success' ? '#2d6a4f' : '#c0392b';
+}
+</script>
+
 </body>
 </html>
