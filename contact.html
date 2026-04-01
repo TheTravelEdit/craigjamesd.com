@@ -6,132 +6,149 @@
 <title>Contact — CJ Davitt</title>
 <link rel="stylesheet" href="style.css">
 <style>
-.contact-body{padding:40px var(--pad);display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
-.contact-intro{font-family:var(--body);font-size:.88rem;line-height:1.9;color:var(--drift);margin-bottom:24px;}
-.form-group{margin-bottom:14px;}
+.contact-body{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 56px);}
+.contact-left{background:var(--ink);padding:48px var(--pad);display:flex;flex-direction:column;gap:0;}
+.contact-left-title{font-family:var(--display);font-size:1.6rem;font-weight:400;letter-spacing:.18em;color:var(--white);text-transform:uppercase;margin-bottom:6px;line-height:1;}
+.contact-left-sub{font-family:var(--serif);font-style:italic;font-size:.92rem;color:rgba(255,255,255,.38);margin-bottom:32px;}
+.contact-intro{font-family:var(--body);font-size:.88rem;line-height:1.9;color:rgba(255,255,255,.5);margin-bottom:32px;}
+.contact-detail-lbl{font-family:var(--sans);font-size:.46rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:3px;}
+.contact-detail-val{font-family:var(--body);font-size:.88rem;color:rgba(255,255,255,.65);margin-bottom:18px;}
+.contact-detail-val a{color:rgba(255,255,255,.65);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:1px;}
+.contact-divider{height:1px;background:rgba(255,255,255,.08);margin:24px 0;}
+.gallery-item{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.gallery-item:last-child{border:none;}
+.gallery-loc{font-family:var(--sans);font-size:.46rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:2px;}
+.gallery-name{font-family:var(--body);font-size:.88rem;color:rgba(255,255,255,.55);}
+.contact-events{margin-top:auto;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);}
+.contact-event-lbl{font-family:var(--sans);font-size:.46rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:10px;}
+.event-card-dark{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.event-card-dark:last-child{border:none;}
+.event-date-dark{background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);padding:6px 10px;text-align:center;flex-shrink:0;min-width:40px;}
+.eday-dark{font-family:var(--display);font-size:.9rem;line-height:1;}
+.emon-dark{font-family:var(--sans);font-size:.4rem;letter-spacing:.1em;text-transform:uppercase;opacity:.5;margin-top:1px;}
+.event-name-dark{font-family:var(--sans);font-size:.64rem;color:rgba(255,255,255,.6);font-weight:500;margin-bottom:1px;}
+.event-venue-dark{font-family:var(--body);font-style:italic;font-size:.62rem;color:rgba(255,255,255,.3);}
+
+.contact-right{padding:48px var(--pad);display:flex;flex-direction:column;justify-content:center;}
+.form-group{margin-bottom:16px;}
 .form-label{font-family:var(--sans);font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pebble);display:block;margin-bottom:5px;}
-.form-field{width:100%;background:var(--paper);border:1px solid var(--stone);padding:10px 14px;font-family:var(--body);font-size:.88rem;color:var(--ink);outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none;}
-.form-field:focus{border-color:var(--ink);}
+.form-field{width:100%;background:var(--paper);border:1px solid var(--stone);border-bottom:2px solid var(--stone);padding:11px 14px;font-family:var(--body);font-size:.88rem;color:var(--ink);outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none;}
+.form-field:focus{border-bottom-color:var(--ink);}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.form-submit{width:100%;background:var(--ink);color:var(--white);border:none;padding:13px;font-family:var(--sans);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;margin-top:4px;transition:background .2s;}
+.form-submit{width:100%;background:var(--ink);color:var(--white);border:none;padding:14px;font-family:var(--sans);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;margin-top:4px;transition:background .2s;}
 .form-submit:hover{background:var(--ocean);}
 .form-msg{padding:11px 14px;margin-top:12px;font-family:var(--sans);font-size:.78rem;border-radius:3px;display:none;}
 .form-msg.success{background:#d4edda;color:#2d6a4f;display:block;}
 .form-msg.error{background:#f8d7da;color:#c0392b;display:block;}
-@media(max-width:768px){.contact-body{grid-template-columns:1fr;gap:32px;}.form-row{grid-template-columns:1fr;}}
+@media(max-width:768px){
+  .contact-body{grid-template-columns:1fr;}
+  .contact-right{padding:32px var(--pad);}
+  .form-row{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
 <div class="mob-drawer" id="mobDrawer"><div class="mob-logo">CJ Davitt</div><button class="mob-close" id="mobClose">✕</button><ul class="mob-links"><li><a href="works.html">Works</a></li><li><a href="commissions.html">Commissions</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
 <nav class="nav"><a href="index.html" class="nav-brand">CJ Davitt</a><div class="nav-links"><a href="works.html" class="nav-link">Works</a><a href="commissions.html" class="nav-link">Commissions</a><a href="about.html" class="nav-link">About</a><a href="contact.html" class="nav-link active">Contact</a><a href="contact.html" class="nav-link cta">Inquire</a></div><button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button></nav>
-<div class="page-header"><div class="page-eyebrow">Get In Touch</div><div class="page-title">Let's <em>connect</em></div></div>
+
 <div class="contact-body">
-  <div>
-    <p class="contact-intro">Interested in a piece, considering a commission, or just want to talk fishing? CJ responds personally to every message.</p>
-    <div class="cred-item"><div class="cred-lbl">Email</div><div class="cred-val"><a href="mailto:hello@craigjamesd.com">hello@craigjamesd.com</a></div></div>
-    <div class="cred-item"><div class="cred-lbl">Instagram</div><div class="cred-val"><a href="https://instagram.com/craigjamesd" target="_blank">@craigjamesd</a></div></div>
-    <div class="cred-item"><div class="cred-lbl">Location</div><div class="cred-val">Sandy Hook, New Jersey</div></div>
-    <div class="divider"></div>
-    <div class="label" style="margin-bottom:12px;">Galleries</div>
-    <div class="cred-item"><div class="cred-lbl">Spring Lake</div><div class="cred-val">Frederick Gallery</div></div>
-    <div class="cred-item"><div class="cred-lbl">Rumson</div><div class="cred-val">Autumn Elise Gallery</div></div>
-    <div class="cred-item"><div class="cred-lbl">Bay Head</div><div class="cred-val">Noon Designs</div></div>
-    <div class="divider"></div>
-    <div class="label" style="margin-bottom:10px;">Upcoming Events</div>
-    <div id="contactEvents"><div class="event-card"><div class="event-date"><div class="eday">—</div><div class="emon">—</div></div><div><div class="event-name">No upcoming events</div><div class="event-venue">Check back soon</div></div></div></div>
-  </div>
-  <div>
-    <div id="contactForm">
-      <div class="form-row">
-        <div class="form-group"><label class="form-label">First Name</label><input class="form-field" type="text" id="firstName" placeholder="Craig" autocomplete="given-name"/></div>
-        <div class="form-group"><label class="form-label">Last Name</label><input class="form-field" type="text" id="lastName" placeholder="James" autocomplete="family-name"/></div>
-      </div>
-      <div class="form-group"><label class="form-label">Email</label><input class="form-field" type="email" id="email" placeholder="your@email.com" autocomplete="email"/></div>
-      <div class="form-group"><label class="form-label">Phone (optional)</label><input class="form-field" type="tel" id="phone" placeholder="(732) 555-0100" autocomplete="tel"/></div>
-      <div class="form-group">
-        <label class="form-label">Painting (if applicable)</label>
-        <select class="form-field" id="paintingTitle">
-          <option value="">Select a painting…</option>
-          <optgroup label="Available">
-            <option>The Drifter — Oil on Canvas, 30″ × 40″</option>
-            <option>Bushel of Blues — Oil on Canvas, 24″ × 36″</option>
-            <option>Six Bobbers — Oil on Canvas, 36″ × 36″</option>
-            <option>Wrong Cork — Oil on Canvas, 30″ × 24″</option>
-            <option>Storm Horizon — Oil on Canvas, 18″ × 18″</option>
-            <option>Megalodon — Colored Pencil, 18″ × 24″</option>
-            <option>Yellowfin — Colored Pencil, 30″ × 21″</option>
-            <option>October Fog — Oil on Canvas, 11″ × 14″</option>
-            <option>Green &amp; White — Oil on Canvas, 10″ × 12″</option>
-            <option>Red &amp; White — Oil on Canvas, 16″ × 20″</option>
-            <option>The Road Home — Oil on Canvas, 36″ × 48″</option>
-          </optgroup>
-          <optgroup label="Commission">
-            <option>I'd like to discuss a commission</option>
-          </optgroup>
-          <optgroup label="Other">
-            <option>General question</option>
-          </optgroup>
-        </select>
-      </div>
-      <div class="form-group">
-        <label class="form-label">What can I help you with?</label>
-        <select class="form-field" id="inquiryType">
-          <option value="">Select…</option>
-          <option>Purchase a Painting</option>
-          <option>Commission Request</option>
-          <option>Gallery / Press</option>
-          <option>General Question</option>
-        </select>
-      </div>
-      <div class="form-group"><label class="form-label">Message</label><textarea class="form-field" id="message" rows="5" placeholder="Tell me what you have in mind…"></textarea></div>
-      <button class="form-submit" onclick="submitForm()">Send Message →</button>
-      <div class="form-msg" id="formMsg"></div>
+  <div class="contact-left">
+    <div class="contact-left-title">Get in Touch</div>
+    <div class="contact-left-sub">CJ responds personally to every message.</div>
+    <p class="contact-intro">Interested in a piece, considering a commission, or just want to talk fishing? Reach out directly — no galleries, no middlemen.</p>
+    <div>
+      <div class="contact-detail-lbl">Email</div>
+      <div class="contact-detail-val"><a href="mailto:hello@craigjamesd.com">hello@craigjamesd.com</a></div>
+      <div class="contact-detail-lbl">Instagram</div>
+      <div class="contact-detail-val"><a href="https://instagram.com/craigjamesd" target="_blank">@craigjamesd</a></div>
+      <div class="contact-detail-lbl">Location</div>
+      <div class="contact-detail-val">Sandy Hook, New Jersey</div>
+    </div>
+    <div class="contact-divider"></div>
+    <div style="font-family:var(--sans);font-size:.46rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:12px;">Galleries</div>
+    <div class="gallery-item"><div class="gallery-loc">Spring Lake</div><div class="gallery-name">Frederick Gallery</div></div>
+    <div class="gallery-item"><div class="gallery-loc">Rumson</div><div class="gallery-name">Autumn Elise Gallery</div></div>
+    <div class="gallery-item"><div class="gallery-loc">Bay Head</div><div class="gallery-name">Noon Designs</div></div>
+    <div class="contact-events">
+      <div class="contact-event-lbl">Upcoming Events</div>
+      <div id="contactEvents"><div class="event-card-dark"><div class="event-date-dark"><div class="eday-dark">—</div><div class="emon-dark">—</div></div><div><div class="event-name-dark">No upcoming events</div><div class="event-venue-dark">Check back soon</div></div></div></div>
     </div>
   </div>
+
+  <div class="contact-right">
+    <div style="font-family:var(--display);font-size:.88rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);margin-bottom:24px;">Send a Message</div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">First Name</label><input class="form-field" type="text" id="firstName" placeholder="Craig" autocomplete="given-name"/></div>
+      <div class="form-group"><label class="form-label">Last Name</label><input class="form-field" type="text" id="lastName" placeholder="James" autocomplete="family-name"/></div>
+    </div>
+    <div class="form-group"><label class="form-label">Email</label><input class="form-field" type="email" id="email" placeholder="your@email.com" autocomplete="email"/></div>
+    <div class="form-group"><label class="form-label">Phone (optional)</label><input class="form-field" type="tel" id="phone" placeholder="(732) 555-0100" autocomplete="tel"/></div>
+    <div class="form-group">
+      <label class="form-label">Painting (if applicable)</label>
+      <select class="form-field" id="paintingTitle">
+        <option value="">Select a painting…</option>
+        <optgroup label="Available">
+          <option>The Drifter — Oil on Canvas, 30″ × 40″</option>
+          <option>Bushel of Blues — Oil on Canvas, 24″ × 36″</option>
+          <option>Six Bobbers — Oil on Canvas, 36″ × 36″</option>
+          <option>Wrong Cork — Oil on Canvas, 30″ × 24″</option>
+          <option>Storm Horizon — Oil on Canvas, 18″ × 18″</option>
+          <option>Megalodon — Colored Pencil, 18″ × 24″</option>
+          <option>Yellowfin — Colored Pencil, 30″ × 21″</option>
+          <option>October Fog — Oil on Canvas, 11″ × 14″</option>
+          <option>Green &amp; White — Oil on Canvas, 10″ × 12″</option>
+          <option>Red &amp; White — Oil on Canvas, 16″ × 20″</option>
+          <option>The Road Home — Oil on Canvas, 36″ × 48″</option>
+        </optgroup>
+        <optgroup label="Commission"><option>I'd like to discuss a commission</option></optgroup>
+        <optgroup label="Other"><option>General question</option></optgroup>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">How can I help?</label>
+      <select class="form-field" id="inquiryType">
+        <option value="">Select…</option>
+        <option>Purchase a Painting</option>
+        <option>Commission Request</option>
+        <option>Gallery / Press</option>
+        <option>General Question</option>
+      </select>
+    </div>
+    <div class="form-group"><label class="form-label">Message</label><textarea class="form-field" id="message" rows="4" placeholder="Tell me what you have in mind…"></textarea></div>
+    <button class="form-submit" onclick="submitForm()">Send Message →</button>
+    <div class="form-msg" id="formMsg"></div>
+  </div>
 </div>
+
 <footer><div class="ft-grid"><div><div class="ft-logo">CJ Davitt</div><div class="ft-sub">Angling Artist · Sandy Hook, NJ</div><p class="ft-tag">Original oil paintings rooted in the coast, the catch, and the quiet beauty of life by the water.</p></div><div><div class="ft-col-lbl">Navigate</div><a href="index.html" class="ft-link">Home</a><a href="works.html" class="ft-link">Works</a><a href="commissions.html" class="ft-link">Commissions</a><a href="about.html" class="ft-link">About</a></div><div><div class="ft-col-lbl">Galleries</div><span class="ft-link">Frederick Gallery · Spring Lake</span><span class="ft-link">Autumn Elise · Rumson</span><span class="ft-link">Noon Designs · Bay Head</span></div></div><div class="ft-bot"><span class="ft-copy">© 2026 CJ Davitt · craigjamesd.com</span><a href="https://instagram.com/craigjamesd" target="_blank" class="ft-ig">@craigjamesd</a></div></footer>
+
 <script src="shared.js"></script>
 <script>
 const SCRIPT_URL='https://script.google.com/macros/s/AKfycbwmyK0ljJsRQG3XXsWIAwr_cNyMuwnvgYblWskEZlrDgWVf4pMSiSut4yK_T68cwBePOA/exec';
-
-// Pre-fill from URL params
 const params=new URLSearchParams(window.location.search);
 if(params.get('painting')){document.getElementById('paintingTitle').value=params.get('painting');}
 if(params.get('inquiry')){document.getElementById('inquiryType').value=params.get('inquiry');}
-
 async function submitForm(){
   const btn=document.querySelector('.form-submit');
   const fn=document.getElementById('firstName').value.trim();
-  const ln=document.getElementById('lastName').value.trim();
   const em=document.getElementById('email').value.trim();
   const msg=document.getElementById('message').value.trim();
-  const msgEl=document.getElementById('formMsg');
   if(!fn){showMsg('Please enter your first name.','error');return;}
   if(!em){showMsg('Please enter your email.','error');return;}
   if(!msg){showMsg('Please enter a message.','error');return;}
   btn.textContent='Sending…';btn.disabled=true;
   try{
-    const res=await fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify({
-      action:'submit_inquiry',
-      firstName:fn,lastName:ln,email:em,
-      phone:document.getElementById('phone').value.trim(),
-      paintingTitle:document.getElementById('paintingTitle').value,
-      inquiryType:document.getElementById('inquiryType').value,
-      message:msg
-    })});
+    const res=await fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify({action:'submit_inquiry',firstName:fn,lastName:document.getElementById('lastName').value.trim(),email:em,phone:document.getElementById('phone').value.trim(),paintingTitle:document.getElementById('paintingTitle').value,inquiryType:document.getElementById('inquiryType').value,message:msg})});
     const data=await res.json();
-    if(data.success){
-      showMsg('Thank you — CJ will be in touch soon.','success');
-      ['firstName','lastName','email','phone','message'].forEach(id=>document.getElementById(id).value='');
-      document.getElementById('paintingTitle').value='';
-      document.getElementById('inquiryType').value='';
-    }else{showMsg('Something went wrong. Please email hello@craigjamesd.com directly.','error');}
+    if(data.success){showMsg('Thank you — CJ will be in touch soon.','success');['firstName','lastName','email','phone','message'].forEach(id=>document.getElementById(id).value='');document.getElementById('paintingTitle').value='';document.getElementById('inquiryType').value='';}
+    else{showMsg('Something went wrong. Please email hello@craigjamesd.com directly.','error');}
   }catch(e){showMsg('Something went wrong. Please email hello@craigjamesd.com directly.','error');}
   btn.textContent='Send Message →';btn.disabled=false;
 }
 function showMsg(msg,type){const el=document.getElementById('formMsg');el.textContent=msg;el.className='form-msg '+type;}
-
-async function loadEvents(){try{const r=await fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify({action:'get_events',password:'cjdavitt2026'})});const d=await r.json();if(!d.success||!d.data)return;const up=d.data.filter(e=>e['Status']==='Upcoming'||e['Status']==='Ongoing');if(!up.length)return;const c=document.getElementById('contactEvents');c.innerHTML='';up.slice(0,3).forEach(ev=>{const dt=ev['Start Date']?new Date(ev['Start Date']):null;const day=dt?dt.getDate():'—';const mon=dt?dt.toLocaleString('default',{month:'short'}).toUpperCase():'—';c.innerHTML+=`<div class="event-card"><div class="event-date"><div class="eday">${day}</div><div class="emon">${mon}</div></div><div><div class="event-name">${ev['Event Name']}</div><div class="event-venue">${ev['Venue Name']||''} · ${ev['City']||''}</div></div></div>`;});}catch(e){}}
+async function loadEvents(){
+  try{const r=await fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify({action:'get_events',password:'cjdavitt2026'})});const d=await r.json();if(!d.success||!d.data)return;const up=d.data.filter(e=>e['Status']==='Upcoming'||e['Status']==='Ongoing');if(!up.length)return;const c=document.getElementById('contactEvents');c.innerHTML='';up.slice(0,3).forEach(ev=>{const dt=ev['Start Date']?new Date(ev['Start Date']):null;const day=dt?dt.getDate():'—';const mon=dt?dt.toLocaleString('default',{month:'short'}).toUpperCase():'—';c.innerHTML+=`<div class="event-card-dark"><div class="event-date-dark"><div class="eday-dark">${day}</div><div class="emon-dark">${mon}</div></div><div><div class="event-name-dark">${ev['Event Name']}</div><div class="event-venue-dark">${ev['Venue Name']||''} · ${ev['City']||''}</div></div></div>`;});}catch(e){}
+}
 loadEvents();
 </script>
 </body>
