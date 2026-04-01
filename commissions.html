@@ -13,7 +13,7 @@
 .comm-left{padding:32px var(--pad);border-right:1px solid var(--stone);display:flex;flex-direction:column;gap:0;}
 .comm-intro{font-family:var(--body);font-size:.92rem;line-height:1.9;color:var(--drift);margin-bottom:28px;}
 .proc-item{display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--stone);}
-.proc-n{font-family:var(--serif);font-size:1.2rem;color:var(--stone);flex-shrink:0;width:22px;line-height:1;padding-top:2px;}
+.proc-n{font-family:var(--serif);font-size:1.2rem;color:var(--navy);flex-shrink:0;width:22px;line-height:1;padding-top:2px;}
 .proc-name{font-family:var(--sans);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);margin-bottom:4px;}
 .proc-desc{font-family:var(--body);font-size:.84rem;color:var(--drift);line-height:1.7;}
 .comm-cta{margin-top:28px;}
@@ -25,7 +25,16 @@
 .comm-note{font-family:var(--body);font-style:italic;font-size:.76rem;color:var(--pebble);text-align:center;}
 @media(max-width:768px){
   .comm-body{grid-template-columns:1fr;}
-  .comm-left{border-right:none;border-bottom:1px solid var(--stone);}
+  .comm-left{border-right:none;border-bottom:1px solid var(--stone);padding:24px var(--pad);}
+  .comm-right{padding:24px var(--pad);}
+  .comm-intro{font-size:.88rem;}
+  .proc-name{font-size:.68rem;}
+  .proc-desc{font-size:.88rem;}
+  .comm-details{margin-top:16px;}
+  .comm-samples{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:480px){
+  .comm-samples{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -40,12 +49,19 @@
 
 <div class="comm-body">
   <div class="comm-left">
+    <div style="position:relative;margin-bottom:24px;border:1px solid var(--stone);overflow:hidden;">
+      <img src="images/the-drifter.jpg" alt="The Drifter" style="width:100%;height:220px;object-fit:cover;object-position:center top;display:block;"/>
+      <div style="position:absolute;bottom:0;left:0;right:0;background:var(--navy);padding:10px 14px;">
+        <div style="font-family:var(--serif);font-style:italic;font-size:.78rem;color:rgba(255,255,255,.7);">The Drifter</div>
+        <div style="font-family:var(--sans);font-size:.44rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);">Oil on canvas · 30″ × 40″</div>
+      </div>
+    </div>
     <p class="comm-intro">A favourite fishing hole, a beloved piece of tackle, a family boat, a catch you'll never forget. CJ takes a limited number of commissions each year — each treated with the same care as his gallery work.</p>
     <div class="proc-item"><div class="proc-n">01</div><div><div class="proc-name">Reach Out</div><div class="proc-desc">Share your subject, size ideas, and any reference photos. The more context the better — CJ responds personally to every message.</div></div></div>
     <div class="proc-item"><div class="proc-n">02</div><div><div class="proc-name">Quote &amp; Timeline</div><div class="proc-desc">CJ responds with a price estimate and expected completion time based on size and complexity.</div></div></div>
     <div class="proc-item"><div class="proc-n">03</div><div><div class="proc-name">Creation</div><div class="proc-desc">CJ paints your piece with the same attention he gives his gallery work. You'll receive updates along the way.</div></div></div>
     <div class="proc-item"><div class="proc-n">04</div><div><div class="proc-name">Delivery</div><div class="proc-desc">Shipped nationwide with professional packaging, or available for local pickup in New Jersey.</div></div></div>
-    <div class="comm-cta"><a href="contact.html?inquiry=Commission+Request" class="btn btn-f">Start a Commission</a></div>
+    <div class="comm-cta"><a href="contact.html?inquiry=Commission+Request" class="btn" style="background:var(--seagreen);color:var(--white);border-color:var(--seagreen);font-size:.64rem;padding:12px 24px;display:block;text-align:center;">Start a Commission →</a></div>
     <div class="comm-details">
       <div class="cred-item"><div class="cred-lbl">Availability</div><div class="cred-val">Limited commissions accepted per year</div></div>
       <div class="cred-item"><div class="cred-lbl">Pricing</div><div class="cred-val">Based on size and complexity — contact for a quote</div></div>

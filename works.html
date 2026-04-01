@@ -6,40 +6,27 @@
 <title>Works — CJ Davitt</title>
 <link rel="stylesheet" href="style.css">
 <style>
-.works-header{padding:24px var(--pad) 0;}
+.works-header{padding:20px var(--pad) 0;}
 .works-title{font-family:var(--display);font-size:1.1rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);}
 
-/* TOP SECTION: featured LEFT, sidebar RIGHT */
-.works-top{display:grid;grid-template-columns:1fr 300px;border-bottom:2px solid var(--ink);margin-top:16px;}
-
 /* FEATURED */
-.works-featured{padding:28px var(--pad) 28px 40px;border-right:1px solid var(--stone);}
-.featured-label{font-family:var(--sans);font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--pebble);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--stone);}
+.works-featured{padding:20px var(--pad);}
+.featured-label{font-family:var(--sans);font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--pebble);padding-bottom:10px;border-bottom:1px solid var(--stone);margin-bottom:0;}
 .mag-item{display:grid;grid-template-columns:240px 1fr;gap:28px;align-items:start;padding:24px 0;border-bottom:1px solid var(--stone);}
-.mag-item:first-child{padding-top:0;}
-.mag-item:last-child{border-bottom:none;padding-bottom:0;}
-.mag-img{aspect-ratio:4/3;border:1px solid var(--stone);overflow:hidden;cursor:zoom-in;display:block;}
-.mag-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
+.mag-item:last-child{border-bottom:none;}
+.mag-img{aspect-ratio:4/3;border:1px solid var(--stone);overflow:hidden;cursor:zoom-in;}
+.mag-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s;}
 .mag-item:hover .mag-img img{transform:scale(1.03);}
 .mag-num{font-family:var(--serif);font-size:1.8rem;color:var(--stone);line-height:1;margin-bottom:6px;}
 .mag-title-row{display:flex;align-items:center;gap:7px;margin-bottom:4px;}
 .mag-title{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--ink);}
 .mag-medium{font-family:var(--sans);font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;color:var(--pebble);margin-bottom:12px;}
 .mag-desc{font-family:var(--body);font-size:.84rem;line-height:1.85;color:var(--drift);margin-bottom:14px;}
-.mag-action{font-family:var(--sans);font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--stone);padding-bottom:1px;text-decoration:none;display:inline-block;}
-
-/* SIDEBAR */
-.works-sidebar{background:var(--paper);padding:28px 24px;position:sticky;top:56px;align-self:start;max-height:calc(100vh - 56px);overflow-y:auto;}
-.aside-portrait{position:relative;margin-bottom:20px;}
-.aside-portrait img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 20%;display:block;border:1px solid var(--stone);}
-.aside-portrait-cap{position:absolute;bottom:0;left:0;right:0;background:var(--navy);padding:11px 14px;}
-.apc-name{font-family:var(--display);font-size:.78rem;color:rgba(255,255,255,.85);letter-spacing:.18em;margin-bottom:1px;}
-.apc-sub{font-family:var(--sans);font-size:.44rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);}
-.aside-events{margin-top:20px;padding-top:20px;border-top:1px solid var(--stone);}
+.mag-action{font-family:var(--sans);font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--stone);padding-bottom:1px;text-decoration:none;}
 
 /* GRID */
-.works-grid-section{padding:28px 40px 32px;}
-.grid-header{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--stone);margin-bottom:24px;padding-bottom:10px;}
+.works-grid-section{padding:24px var(--pad) 32px;border-top:2px solid var(--ink);}
+.grid-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
 .grid-label{font-family:var(--sans);font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);}
 .works-filters{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;}
 .works-filters::-webkit-scrollbar{display:none;}
@@ -49,7 +36,7 @@
 .art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .art-card{cursor:pointer;}
 .art-card-img{overflow:hidden;border:1px solid var(--stone);aspect-ratio:3/2;margin-bottom:9px;}
-.art-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
+.art-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s;}
 .art-card:hover .art-card-img img{transform:scale(1.04);}
 .art-card-img.sold img{filter:grayscale(20%);}
 .art-card-body{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
@@ -58,17 +45,32 @@
 .art-card-medium{font-family:var(--sans);font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--pebble);}
 .art-card-cta{font-family:var(--sans);font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--drift);white-space:nowrap;border-bottom:1px solid var(--stone);padding-bottom:1px;text-decoration:none;flex-shrink:0;}
 
-@media(max-width:960px){
-  .works-top{grid-template-columns:1fr;}
-  .works-sidebar{position:static;max-height:none;display:grid;grid-template-columns:180px 1fr;gap:20px;align-items:start;}
-  .aside-portrait{margin-bottom:0;}
-  .mag-item{grid-template-columns:160px 1fr;}
-  .art-grid{grid-template-columns:1fr 1fr;}
+/* ABOUT STRIP */
+.works-about{display:grid;grid-template-columns:300px 1fr;border-top:2px solid var(--ink);background:var(--paper);}
+.about-photo-col{border-right:1px solid var(--stone);position:relative;}
+.about-photo-col img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;min-height:320px;}
+.about-photo-cap{position:absolute;bottom:0;left:0;right:0;background:var(--navy);padding:11px 16px;}
+.apc-name{font-family:var(--display);font-size:.82rem;color:rgba(255,255,255,.85);letter-spacing:.18em;}
+.apc-sub{font-family:var(--sans);font-size:.44rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);}
+.about-details-col{padding:28px 32px;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;}
+.about-creds{}
+.about-events{}
+.events-label{font-family:var(--sans);font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:var(--pebble);margin-bottom:12px;}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  .mag-item{grid-template-columns:1fr;gap:14px;}
+  .mag-num{display:none;}
+  .mag-desc{font-size:.82rem;}
+  .art-grid{grid-template-columns:1fr 1fr;gap:12px;}
+  .grid-header{flex-direction:column;align-items:flex-start;gap:8px;}
+  .works-about{grid-template-columns:1fr;}
+  .about-photo-col img{min-height:220px;max-height:260px;}
+  .about-details-col{grid-template-columns:1fr;gap:20px;padding:20px var(--pad);}
 }
-@media(max-width:600px){
-  .works-sidebar{grid-template-columns:1fr;}
+@media(max-width:480px){
   .art-grid{grid-template-columns:1fr;}
-  .grid-header{flex-direction:column;align-items:flex-start;gap:10px;}
+  .mag-item{padding:16px 0;}
 }
 </style>
 </head>
@@ -77,64 +79,43 @@
 <div class="mob-drawer" id="mobDrawer"><div class="mob-logo">CJ Davitt</div><button class="mob-close" id="mobClose">✕</button><ul class="mob-links"><li><a href="works.html">Works</a></li><li><a href="commissions.html">Commissions</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
 <nav class="nav"><a href="index.html" class="nav-brand">CJ Davitt</a><div class="nav-links"><a href="works.html" class="nav-link active">Works</a><a href="commissions.html" class="nav-link">Commissions</a><a href="about.html" class="nav-link">About</a><a href="contact.html" class="nav-link">Contact</a><a href="contact.html" class="nav-link cta">Inquire</a></div><button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button></nav>
 
+<!-- 1. FEATURED WORKS -->
 <div class="works-header"><div class="works-title">Selected Works</div></div>
-
-<div class="works-top">
-  <!-- FEATURED WORKS — LEFT -->
-  <div class="works-featured">
-    <div class="featured-label">Featured</div>
-    <div class="mag-item" data-cat="figures">
-      <div class="mag-img"><img src="images/the-drifter.jpg" alt="The Drifter" onclick="openLightbox(this.src,'The Drifter · oil on canvas, 30″ × 40″')" loading="lazy"/></div>
-      <div>
-        <div class="mag-num">01</div>
-        <div class="mag-title-row"><span class="dot dot-av"></span><div class="mag-title">The Drifter</div></div>
-        <div class="mag-medium">Oil on Canvas · 30″ × 40″</div>
-        <p class="mag-desc">A weathered fisherman in a yellow slicker stares back through bobber-lens glasses — eyes obscured, presence undeniable. Part portrait, part emblem of the Jersey Shore. One of CJ's most recognized and sought-after pieces, fusing nautical iconography with quiet, arresting character study.</p>
-        <a href="contact.html?painting=The+Drifter" class="mag-action">Inquire about this work →</a>
-      </div>
-    </div>
-    <div class="mag-item" data-cat="marine">
-      <div class="mag-img"><img src="images/bushel-of-blues.jpg" alt="Bushel of Blues" onclick="openLightbox(this.src,'Bushel of Blues · oil on canvas, 24″ × 36″')" loading="lazy"/></div>
-      <div>
-        <div class="mag-num">02</div>
-        <div class="mag-title-row"><span class="dot dot-av"></span><div class="mag-title">Bushel of Blues</div></div>
-        <div class="mag-medium">Oil on Canvas · 24″ × 36″</div>
-        <p class="mag-desc">A chaotic tangle of blue crabs packed into a wooden bushel, painted with palette knife and raw energy. Thick impasto surfaces give each claw and shell a sculptural, tactile presence — as if the crabs are still moving. A direct product of summers crabbing on Barnegat Bay.</p>
-        <a href="contact.html?painting=Bushel+of+Blues" class="mag-action">Inquire about this work →</a>
-      </div>
-    </div>
-    <div class="mag-item" data-cat="bobbers">
-      <div class="mag-img"><img src="images/six-bobbers.jpg" alt="Six Bobbers" onclick="openLightbox(this.src,'Six Bobbers · oil on canvas, 36″ × 36″')" loading="lazy"/></div>
-      <div>
-        <div class="mag-num">03</div>
-        <div class="mag-title-row"><span class="dot dot-av"></span><div class="mag-title">Six Bobbers</div></div>
-        <div class="mag-medium">Oil on Canvas · 36″ × 36″</div>
-        <p class="mag-desc">Six weathered wooden fishing bobbers arranged against a clean white ground — each one bearing the chipped paint and salt-worn character of years on the water. The piece that defined CJ's signature subject and drew collectors to his work for the first time.</p>
-        <a href="contact.html?painting=Six+Bobbers" class="mag-action">Inquire about this work →</a>
-      </div>
+<div class="works-featured">
+  <div class="featured-label">Featured</div>
+  <div class="mag-item">
+    <div class="mag-img"><img src="images/the-drifter.jpg" alt="The Drifter" onclick="openLightbox(this.src,'The Drifter · oil on canvas, 30″ × 40″')" loading="lazy"/></div>
+    <div>
+      <div class="mag-num">01</div>
+      <div class="mag-title-row"><span class="dot dot-av"></span><div class="mag-title">The Drifter</div></div>
+      <div class="mag-medium">Oil on Canvas · 30″ × 40″</div>
+      <p class="mag-desc">A weathered fisherman in a yellow slicker stares back through bobber-lens glasses — eyes obscured, presence undeniable. Part portrait, part emblem of the Jersey Shore. One of CJ's most recognized and sought-after pieces, fusing nautical iconography with quiet, arresting character study.</p>
+      <a href="contact.html?painting=The+Drifter" class="mag-action">Inquire about this work →</a>
     </div>
   </div>
-
-  <!-- SIDEBAR — RIGHT -->
-  <div class="works-sidebar">
-    <div class="aside-portrait">
-      <img src="images/cj-davitt-artist.jpg" alt="CJ Davitt"/>
-      <div class="aside-portrait-cap"><div class="apc-name">CJ Davitt</div><div class="apc-sub">Angling Artist · Sandy Hook, NJ</div></div>
+  <div class="mag-item">
+    <div class="mag-img"><img src="images/bushel-of-blues.jpg" alt="Bushel of Blues" onclick="openLightbox(this.src,'Bushel of Blues · oil on canvas, 24″ × 36″')" loading="lazy"/></div>
+    <div>
+      <div class="mag-num">02</div>
+      <div class="mag-title-row"><span class="dot dot-av"></span><div class="mag-title">Bushel of Blues</div></div>
+      <div class="mag-medium">Oil on Canvas · 24″ × 36″</div>
+      <p class="mag-desc">A chaotic tangle of blue crabs packed into a wooden bushel, painted with palette knife and raw energy. Thick impasto surfaces give each claw and shell a sculptural, tactile presence — a direct product of summers crabbing on Barnegat Bay.</p>
+      <a href="contact.html?painting=Bushel+of+Blues" class="mag-action">Inquire about this work →</a>
     </div>
-    <div class="cred-item"><div class="cred-lbl">Medium</div><div class="cred-val">Oil on canvas &amp; panel, colored pencil</div></div>
-    <div class="cred-item"><div class="cred-lbl">Recognition</div><div class="cred-val">2026 Angling Artist — On The Water Magazine</div></div>
-    <div class="cred-item"><div class="cred-lbl">Galleries</div><div class="cred-val">Frederick Gallery, Spring Lake<br>Autumn Elise, Rumson<br>Noon Designs, Bay Head</div></div>
-    <div class="cred-item"><div class="cred-lbl">Instagram</div><div class="cred-val"><a href="https://instagram.com/craigjamesd" target="_blank">@craigjamesd</a></div></div>
-    <div class="aside-events">
-      <div class="label" style="margin-bottom:12px;">Upcoming Events</div>
-      <div id="eventsAside">
-        <div class="event-card"><div class="event-date"><div class="eday">—</div><div class="emon">—</div></div><div><div class="event-name">No upcoming events</div><div class="event-venue">Check back soon</div></div></div>
-      </div>
+  </div>
+  <div class="mag-item">
+    <div class="mag-img"><img src="images/six-bobbers.jpg" alt="Six Bobbers" onclick="openLightbox(this.src,'Six Bobbers · oil on canvas, 36″ × 36″')" loading="lazy"/></div>
+    <div>
+      <div class="mag-num">03</div>
+      <div class="mag-title-row"><span class="dot dot-av"></span><div class="mag-title">Six Bobbers</div></div>
+      <div class="mag-medium">Oil on Canvas · 36″ × 36″</div>
+      <p class="mag-desc">Six weathered wooden fishing bobbers arranged against a clean white ground — each bearing the chipped paint and salt-worn character of years on the water. The piece that defined CJ's signature subject and first drew collectors to his work.</p>
+      <a href="contact.html?painting=Six+Bobbers" class="mag-action">Inquire about this work →</a>
     </div>
   </div>
 </div>
 
-<!-- MORE WORKS GRID -->
+<!-- 2. MORE WORKS GRID -->
 <div class="works-grid-section">
   <div class="grid-header">
     <div class="grid-label">More Works</div>
@@ -155,7 +136,32 @@
     <div class="art-card" data-cat="bobbers" onclick="openLightbox('images/green-white-bobber.jpg','Green &amp; White · oil on canvas, 10″ × 12″')"><div class="art-card-img"><img src="images/green-white-bobber.jpg" alt="Green &amp; White" loading="lazy"/></div><div class="art-card-body"><div><div class="art-card-title-row"><span class="dot dot-av"></span><div class="art-card-title">Green &amp; White</div></div><div class="art-card-medium">Oil on Canvas · 10″ × 12″</div></div><a href="contact.html?painting=Green+%26+White" class="art-card-cta" onclick="event.stopPropagation()">Inquire</a></div></div>
     <div class="art-card" data-cat="bobbers" onclick="openLightbox('images/red-white-bobber.jpg','Red &amp; White · oil on canvas, 16″ × 20″')"><div class="art-card-img"><img src="images/red-white-bobber.jpg" alt="Red &amp; White" loading="lazy"/></div><div class="art-card-body"><div><div class="art-card-title-row"><span class="dot dot-av"></span><div class="art-card-title">Red &amp; White</div></div><div class="art-card-medium">Oil on Canvas · 16″ × 20″</div></div><a href="contact.html?painting=Red+%26+White" class="art-card-cta" onclick="event.stopPropagation()">Inquire</a></div></div>
     <div class="art-card" data-cat="figures" onclick="openLightbox('images/the-road-home.jpg','The Road Home · oil on canvas, 36″ × 48″')"><div class="art-card-img"><img src="images/the-road-home.jpg" alt="The Road Home" loading="lazy"/></div><div class="art-card-body"><div><div class="art-card-title-row"><span class="dot dot-av"></span><div class="art-card-title">The Road Home</div></div><div class="art-card-medium">Oil on Canvas · 36″ × 48″</div></div><a href="contact.html?painting=The+Road+Home" class="art-card-cta" onclick="event.stopPropagation()">Inquire</a></div></div>
-    <div class="art-card" data-cat="marine"><div class="art-card-img sold"><img src="images/tied-fast.jpg" alt="Tied Fast" loading="lazy" onclick="openLightbox('images/tied-fast.jpg','Tied Fast · oil on panel, 11″ × 14″')"/></div><div class="art-card-body"><div><div class="art-card-title-row"><span class="dot dot-sold"></span><div class="art-card-title">Tied Fast</div></div><div class="art-card-medium">Oil on Panel · Sold</div></div><a href="commissions.html" class="art-card-cta" style="color:var(--pebble);" onclick="event.stopPropagation()">Request similar</a></div></div>
+    <div class="art-card" data-cat="marine"><div class="art-card-img sold"><img src="images/tied-fast.jpg" alt="Tied Fast" onclick="openLightbox('images/tied-fast.jpg','Tied Fast · oil on panel')" loading="lazy"/></div><div class="art-card-body"><div><div class="art-card-title-row"><span class="dot dot-sold"></span><div class="art-card-title">Tied Fast</div></div><div class="art-card-medium">Oil on Panel · Sold</div></div><a href="commissions.html" class="art-card-cta" style="color:var(--pebble);" onclick="event.stopPropagation()">Request similar</a></div></div>
+  </div>
+</div>
+
+<!-- 3. ABOUT + EVENTS -->
+<div class="works-about">
+  <div class="about-photo-col">
+    <img src="images/cj-davitt-artist.jpg" alt="CJ Davitt"/>
+    <div class="about-photo-cap"><div class="apc-name">CJ Davitt</div><div class="apc-sub">Angling Artist · Sandy Hook, NJ</div></div>
+  </div>
+  <div class="about-details-col">
+    <div class="about-creds">
+      <div class="label" style="margin-bottom:14px;">About the Artist</div>
+      <div class="cred-item"><div class="cred-lbl">Medium</div><div class="cred-val">Oil on canvas &amp; panel, colored pencil on paper</div></div>
+      <div class="cred-item"><div class="cred-lbl">Based In</div><div class="cred-val">Sandy Hook, New Jersey</div></div>
+      <div class="cred-item"><div class="cred-lbl">Recognition</div><div class="cred-val">2026 Angling Artist — On The Water Magazine</div></div>
+      <div class="cred-item"><div class="cred-lbl">Galleries</div><div class="cred-val">Frederick Gallery, Spring Lake<br>Autumn Elise, Rumson<br>Noon Designs, Bay Head</div></div>
+      <div class="cred-item"><div class="cred-lbl">Instagram</div><div class="cred-val"><a href="https://instagram.com/craigjamesd" target="_blank">@craigjamesd</a></div></div>
+      <div style="margin-top:16px;"><a href="about.html" class="small-cta">Read the full story →</a></div>
+    </div>
+    <div class="about-events">
+      <div class="events-label">Upcoming Events</div>
+      <div id="eventsAside">
+        <div class="event-card"><div class="event-date"><div class="eday">—</div><div class="emon">—</div></div><div><div class="event-name">No upcoming events</div><div class="event-venue">Check back soon</div></div></div>
+      </div>
+    </div>
   </div>
 </div>
 

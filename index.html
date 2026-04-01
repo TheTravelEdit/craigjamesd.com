@@ -41,11 +41,20 @@
 @media(max-width:900px){
   .hero-body{grid-template-columns:1fr;}
   .hero-left{border-right:none;border-bottom:1px solid var(--stone);}
-  .hero-left img{min-height:280px;max-height:340px;}
-  .hero-name{font-size:1.6rem;}
-  .section-cards{grid-template-columns:1fr 1fr;}
+  .hero-left img{min-height:260px;max-height:320px;}
+  .hero-name{font-size:1.5rem;letter-spacing:.12em;}
+  .hero-text{padding:24px var(--pad) 16px;}
+  .hero-p{font-size:.84rem;}
+  .hero-lower{padding:0 var(--pad) 20px;}
+  .hero-btns{gap:8px;}
+  .hero-btns .btn{font-size:.5rem;padding:8px 14px;}
 }
-@media(max-width:540px){.section-cards{grid-template-columns:1fr;}}
+@media(max-width:480px){
+  .hero-name{font-size:1.2rem;}
+  .hero-p{font-size:.82rem;}
+  .hero-btns{flex-direction:column;}
+  .hero-btns .btn{text-align:center;}
+}
 </style>
 </head>
 <body>
@@ -62,7 +71,7 @@
   <div class="hero-right">
     <div class="hero-text">
       <div class="hero-name">Sandy Hook,<br>New Jersey</div>
-      <p class="hero-p">Raised on the shores of Barnegat Bay, Craig Davitt has spent his life within sight or sound of the water. Those early years — fishing for snappers with bobber rigs, crabbing on the family's old Dixie, watching light shift over the open bay — became the visual vocabulary he would later pour onto canvas.</p>
+      <p class="hero-p">Raised on the shores of Barnegat Bay, Davitt has spent his life within sight or sound of the water. Those early years — fishing for snappers with bobber rigs, crabbing on the family's old Dixie, watching light shift over the open bay — became the visual vocabulary he would later pour onto canvas.</p>
       <p class="hero-p">Working in oil on canvas and colored pencil, his paintings place heavy emphasis on shadow, texture, and hyper-realism. He often trades his brush for a palette knife, loading thick paint that dries with a sculptural surface — his subjects look like you could reach out and pick them up.</p>
       <p class="hero-p">His work is held in private collections across the Northeast and shown in galleries throughout the Jersey Shore. In 2026 he was named the featured Angling Artist in <em>On The Water</em> Magazine's annual Angler's Almanac — a recognition of a body of work rooted entirely in the place he calls home.</p>
       <div class="hero-btns"><a href="works.html" class="btn btn-f">View Works</a><a href="commissions.html" class="btn">Commission a Painting</a></div>
