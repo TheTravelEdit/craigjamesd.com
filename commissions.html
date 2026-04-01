@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commissions — CJ Davitt</title>
+<meta name="description" content="Commission an original oil painting from CJ Davitt — New Jersey angling artist.">
+<link rel="stylesheet" href="style.css">
+<style>
+.comm-body{padding:40px var(--pad);display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+.comm-intro{font-family:var(--body);font-size:.9rem;line-height:1.9;color:var(--drift);margin-bottom:24px;}
+.process-list{display:flex;flex-direction:column;margin-bottom:32px;}
+.proc-item{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--stone);}
+.proc-item:first-child{border-top:1px solid var(--stone);}
+.proc-n{font-family:var(--serif);font-size:1.3rem;color:var(--stone);flex-shrink:0;width:22px;line-height:1;padding-top:2px;}
+.proc-name{font-family:var(--sans);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--anchor);margin-bottom:3px;}
+.proc-desc{font-family:var(--body);font-size:.82rem;color:var(--drift);line-height:1.7;}
+.comm-samples{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
+.comm-sample{aspect-ratio:1;overflow:hidden;border:1px solid var(--stone);cursor:zoom-in;}
+.comm-sample img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+.comm-sample:hover img{transform:scale(1.04);}
+.comm-note{font-family:var(--body);font-style:italic;font-size:.76rem;color:var(--pebble);text-align:center;line-height:1.6;margin-bottom:20px;}
+@media(max-width:768px){.comm-body{grid-template-columns:1fr;gap:32px;}}
+</style>
+</head>
+<body>
+<div class="lightbox" id="lightbox"><div class="lightbox-inner"><button class="lightbox-close">✕ Close</button><img src="" alt=""/><div class="lightbox-cap"></div></div></div>
+<div class="mob-drawer" id="mobDrawer"><div class="mob-logo">CJ Davitt</div><button class="mob-close" id="mobClose">✕</button><ul class="mob-links"><li><a href="works.html">Works</a></li><li><a href="commissions.html">Commissions</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+<nav class="nav"><a href="index.html" class="nav-brand">CJ Davitt</a><div class="nav-links"><a href="works.html" class="nav-link">Works</a><a href="commissions.html" class="nav-link active">Commissions</a><a href="about.html" class="nav-link">About</a><a href="contact.html" class="nav-link">Contact</a><a href="contact.html" class="nav-link cta">Inquire</a></div><button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button></nav>
+<div class="page-header"><div class="page-eyebrow">Custom Work</div><div class="page-title">Commission an original <em>painting</em></div></div>
+<div class="comm-body">
+  <div>
+    <p class="comm-intro">A favourite fishing hole, a beloved piece of tackle, a family boat, a catch you'll never forget. CJ takes a limited number of commissions each year — each treated with the same care as his gallery work.</p>
+    <div class="process-list">
+      <div class="proc-item"><div class="proc-n">01</div><div><div class="proc-name">Reach Out</div><div class="proc-desc">Share your subject, size ideas, and any reference photos via the contact form. The more context the better — CJ responds personally to every message.</div></div></div>
+      <div class="proc-item"><div class="proc-n">02</div><div><div class="proc-name">Quote &amp; Timeline</div><div class="proc-desc">CJ responds with a price estimate and expected completion time based on size and complexity.</div></div></div>
+      <div class="proc-item"><div class="proc-n">03</div><div><div class="proc-name">Creation</div><div class="proc-desc">CJ paints your piece with the same attention he gives his gallery work. You'll receive updates along the way.</div></div></div>
+      <div class="proc-item"><div class="proc-n">04</div><div><div class="proc-name">Delivery</div><div class="proc-desc">Shipped nationwide with professional packaging, or available for local pickup in New Jersey.</div></div></div>
+    </div>
+    <a href="contact.html?inquiry=Commission+Request" class="btn btn-f">Start a Commission</a>
+  </div>
+  <div>
+    <div class="label" style="margin-bottom:12px;">Recent Work</div>
+    <div class="comm-samples">
+      <div class="comm-sample" onclick="openLightbox('images/the-drifter.jpg','The Drifter · oil on canvas, 30″ × 40″')"><img src="images/the-drifter.jpg" alt="The Drifter" loading="lazy"/></div>
+      <div class="comm-sample" onclick="openLightbox('images/bushel-of-blues.jpg','Bushel of Blues · oil on canvas, 24″ × 36″')"><img src="images/bushel-of-blues.jpg" alt="Bushel of Blues" loading="lazy"/></div>
+      <div class="comm-sample" onclick="openLightbox('images/six-bobbers.jpg','Six Bobbers · oil on canvas, 36″ × 36″')"><img src="images/six-bobbers.jpg" alt="Six Bobbers" loading="lazy"/></div>
+      <div class="comm-sample" onclick="openLightbox('images/wrong-cork.jpg','Wrong Cork · oil on canvas, 30″ × 24″')"><img src="images/wrong-cork.jpg" alt="Wrong Cork" loading="lazy"/></div>
+    </div>
+    <p class="comm-note">Subjects range from bobbers and boats to marine life, open water, and portraits.</p>
+    <div class="divider"></div>
+    <div class="cred-item"><div class="cred-lbl">Availability</div><div class="cred-val">Limited commissions accepted per year</div></div>
+    <div class="cred-item"><div class="cred-lbl">Pricing</div><div class="cred-val">Based on size and complexity — contact for a quote</div></div>
+    <div class="cred-item"><div class="cred-lbl">Medium</div><div class="cred-val">Oil on canvas or panel (colored pencil available for select subjects)</div></div>
+    <div class="cred-item"><div class="cred-lbl">Delivery</div><div class="cred-val">Ships nationwide · Local pickup available in NJ</div></div>
+  </div>
+</div>
+<div class="press"><span class="press-lbl">As Seen In</span><div class="press-div"></div><span class="press-item"><strong>On The Water Magazine</strong> — 2026 Angler's Almanac · Featured Angling Artist</span></div>
+<footer><div class="ft-grid"><div><div class="ft-logo">CJ Davitt</div><div class="ft-sub">Angling Artist · Sandy Hook, NJ</div><p class="ft-tag">Original oil paintings rooted in the coast, the catch, and the quiet beauty of life by the water.</p></div><div><div class="ft-col-lbl">Navigate</div><a href="index.html" class="ft-link">Home</a><a href="works.html" class="ft-link">Works</a><a href="commissions.html" class="ft-link">Commissions</a><a href="about.html" class="ft-link">About</a><a href="contact.html" class="ft-link">Contact</a></div><div><div class="ft-col-lbl">Galleries</div><span class="ft-link">Frederick Gallery · Spring Lake</span><span class="ft-link">Autumn Elise · Rumson</span><span class="ft-link">Noon Designs · Bay Head</span></div></div><div class="ft-bot"><span class="ft-copy">© 2026 CJ Davitt · craigjamesd.com</span><a href="https://instagram.com/craigjamesd" target="_blank" class="ft-ig">@craigjamesd</a></div></footer>
+<script src="shared.js"></script>
+</body>
+</html>
