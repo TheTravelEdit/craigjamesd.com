@@ -7,55 +7,34 @@
 <meta name="description" content="The story of CJ Davitt — New Jersey oil painter and angling artist.">
 <link rel="stylesheet" href="style.css">
 <style>
-.about-hero{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--stone);}
-.about-left{border-right:1px solid var(--stone);}
-.about-portrait{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 15%;display:block;}
-.about-creds-panel{background:var(--paper);padding:20px 24px;border-top:1px solid var(--stone);}
-.about-right{padding:40px 40px;}
-.about-lead{font-family:var(--serif);font-size:1.05rem;line-height:1.75;color:var(--ink);margin-bottom:18px;}
-.about-text{font-family:var(--body);font-size:.86rem;line-height:1.92;color:var(--drift);margin-bottom:14px;}
+.about-wrap{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 56px);}
+.about-left{border-right:1px solid var(--stone);display:flex;flex-direction:column;}
+.about-photo{width:100%;height:420px;object-fit:cover;object-position:center 20%;display:block;}
+.about-creds{background:var(--paper);padding:24px 28px;flex:1;border-top:1px solid var(--stone);}
+.about-right{padding:44px 48px;display:flex;flex-direction:column;gap:14px;overflow-y:auto;max-height:calc(100vh - 56px);}
+.about-lead{font-family:var(--serif);font-size:1.05rem;line-height:1.75;color:var(--ink);}
+.about-text{font-family:var(--body);font-size:.86rem;line-height:1.92;color:var(--drift);}
 .press-band{background:var(--ink);padding:28px var(--pad);display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
 .press-quote-text{font-family:var(--serif);font-style:italic;font-size:1rem;color:rgba(255,255,255,.65);line-height:1.6;margin-bottom:10px;}
 .press-attr{font-family:var(--sans);font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.24);}
 .gallery-list{font-family:var(--body);font-size:.8rem;color:rgba(255,255,255,.35);line-height:2.1;}
-.timeline-section{padding:40px var(--pad);}
-.timeline-header{text-align:center;margin-bottom:32px;}
-.timeline-title{font-family:var(--serif);font-size:1.8rem;font-weight:400;color:var(--ink);margin-bottom:6px;}
-.timeline-title em{font-style:italic;}
-.timeline-sub{font-family:var(--body);font-style:italic;font-size:.82rem;color:var(--pebble);}
-.timeline-strip{display:grid;grid-template-columns:repeat(6,1fr);border-top:2px solid var(--ink);padding-top:20px;gap:0;}
-.tl-col{padding-right:16px;}
-.tl-col+.tl-col{border-left:1px solid var(--stone);padding-left:16px;padding-right:16px;}
-.tl-col:last-child{padding-right:0;}
-.tl-year{font-family:var(--sans);font-size:.46rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pebble);margin-bottom:5px;}
-.tl-event-title{font-family:var(--serif);font-style:italic;font-size:.78rem;color:var(--ink);margin-bottom:4px;line-height:1.25;}
-.tl-event-body{font-family:var(--body);font-size:.68rem;color:var(--drift);line-height:1.65;}
 @media(max-width:900px){
-  .about-hero{grid-template-columns:1fr;}
-  .about-left{border-right:none;border-bottom:1px solid var(--stone);display:grid;grid-template-columns:160px 1fr;}
-  .about-portrait{aspect-ratio:3/4;max-height:220px;}
-  .about-creds-panel{border-top:none;border-left:1px solid var(--stone);}
-  .about-right{padding:28px var(--pad);}
+  .about-wrap{grid-template-columns:1fr;}
+  .about-left{border-right:none;border-bottom:1px solid var(--stone);}
+  .about-photo{height:280px;}
+  .about-right{padding:28px var(--pad);max-height:none;}
   .press-band{grid-template-columns:1fr;}
-  .timeline-strip{grid-template-columns:1fr 1fr;gap:16px;}
-  .tl-col+.tl-col{border-left:none;padding-left:0;}
-  .tl-col:nth-child(odd){border-right:1px solid var(--stone);padding-right:16px;}
-}
-@media(max-width:540px){
-  .timeline-strip{grid-template-columns:1fr;}
-  .tl-col:nth-child(odd){border-right:none;}
-  .tl-col{border-bottom:1px solid var(--stone);padding-bottom:14px;padding-right:0;}
 }
 </style>
 </head>
 <body>
 <div class="mob-drawer" id="mobDrawer"><div class="mob-logo">CJ Davitt</div><button class="mob-close" id="mobClose">✕</button><ul class="mob-links"><li><a href="works.html">Works</a></li><li><a href="commissions.html">Commissions</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
 <nav class="nav"><a href="index.html" class="nav-brand">CJ Davitt</a><div class="nav-links"><a href="works.html" class="nav-link">Works</a><a href="commissions.html" class="nav-link">Commissions</a><a href="about.html" class="nav-link active">About</a><a href="contact.html" class="nav-link">Contact</a><a href="contact.html" class="nav-link cta">Inquire</a></div><button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button></nav>
-<div class="page-header"><div class="page-eyebrow">About the Artist</div><div class="page-title">CJ Davitt — <em>Angling Artist</em></div></div>
-<div class="about-hero">
+
+<div class="about-wrap">
   <div class="about-left">
-    <img class="about-portrait" src="images/cj-davitt-artist.jpg" alt="CJ Davitt"/>
-    <div class="about-creds-panel">
+    <img class="about-photo" src="images/cj-davitt-artist.jpg" alt="CJ Davitt"/>
+    <div class="about-creds">
       <div class="cred-item"><div class="cred-lbl">Medium</div><div class="cred-val">Oil on canvas &amp; panel, colored pencil on paper</div></div>
       <div class="cred-item"><div class="cred-lbl">Based In</div><div class="cred-val">Sandy Hook, New Jersey</div></div>
       <div class="cred-item"><div class="cred-lbl">Recognition</div><div class="cred-val">2026 Angling Artist — On The Water Magazine</div></div>
@@ -64,30 +43,24 @@
     </div>
   </div>
   <div class="about-right">
+    <div class="page-eyebrow">About the Artist</div>
+    <div style="font-family:var(--serif);font-size:2rem;font-weight:400;color:var(--ink);line-height:1;">CJ Davitt — <em>Angling Artist</em></div>
     <p class="about-lead">CJ Davitt is a New Jersey painter whose work is inseparable from the salt water that has shaped nearly every chapter of his life.</p>
     <p class="about-text">Growing up, his family summered in Lavallette on the shores of Barnegat Bay. Those early years — fishing for snappers with bobber rigs, crabbing on the family's old Dixie, watching the light shift over the open water — became the visual vocabulary he would later pour onto canvas.</p>
     <div class="pull-quote">"I started painting bobbers because, when I was young, that's what we did at the shore. We fished for snappers with bobber rigs in the bay."</div>
-    <p class="about-text">Today, CJ lives near Sandy Hook with his wife and two kids, just a short walk from the water. By day he works as a physician assistant in orthopedic surgery — a demanding career that makes the studio all the more essential. Painting, like fishing, forces him to be completely present. It is his reset.</p>
-    <p class="about-text">His transition from colored pencil illustration to oil painting began during the pandemic, when he had more time at home and a hunger for a new challenge. His technique places heavy emphasis on shadow, texture, and hyper-realism. He occasionally trades his brush for a palette knife, loading thick paint that dries with a sculptural surface — the bobbers in his paintings look like you could reach out and pick them up.</p>
+    <p class="about-text">Today, CJ lives near Sandy Hook with his wife and two kids. By day he works as a physician assistant in orthopedic surgery — a demanding career that makes the studio all the more essential. Painting, like fishing, forces him to be completely present.</p>
+    <p class="about-text">His technique places heavy emphasis on shadow, texture, and hyper-realism. He occasionally trades his brush for a palette knife, loading thick paint that dries with a sculptural surface — the bobbers in his paintings look like you could reach out and pick them up.</p>
     <div class="pull-quote">"I just paint the things I like because they have meaning to me. If people enjoy them or find meaning in my work, that's great."</div>
-    <p class="about-text">Weathered bobbers. Bushels of blue crabs. Stormy open water. Fishermen in yellow slickers. Rope knots. Striped bass. Shark teeth. Every subject is a product of where CJ was raised and where he lives — the Jersey Shore, in all its battered, beautiful, salt-stained glory.</p>
+    <p class="about-text">Weathered bobbers. Bushels of blue crabs. Stormy open water. Fishermen in yellow slickers. Every subject is a product of where CJ was raised and where he lives — the Jersey Shore, in all its battered, beautiful, salt-stained glory.</p>
+    <div style="padding-top:8px;"><a href="works.html" class="btn btn-f" style="margin-right:10px;">View Works</a><a href="contact.html" class="btn">Get in Touch</a></div>
   </div>
 </div>
+
 <div class="press-band">
   <div><p class="press-quote-text">"Over a short time, Davitt has developed a unique style that makes his work easy to identify even without his signature."</p><div class="press-attr">— On The Water Magazine, January 2026</div></div>
   <div><div style="font-family:var(--sans);font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:8px;">Available At</div><div class="gallery-list">Frederick Gallery — Spring Lake, NJ<br>Autumn Elise Gallery — Rumson, NJ<br>Noon Designs — Bay Head, NJ<br>craigjamesd.com</div></div>
 </div>
-<div class="timeline-section">
-  <div class="timeline-header"><div class="timeline-title">The <em>Story</em></div><div class="timeline-sub">From Barnegat Bay to gallery walls</div></div>
-  <div class="timeline-strip">
-    <div class="tl-col"><div class="tl-year">Early Years</div><div class="tl-event-title">Summers on Barnegat Bay</div><div class="tl-event-body">Fishing, crabbing, and long days on the family boat planted the seeds of a lifelong love of the coast.</div></div>
-    <div class="tl-col"><div class="tl-year">Pre-2020</div><div class="tl-event-title">Colored Pencil &amp; Illustration</div><div class="tl-event-body">Drawing designs for fishing friends — logos, hat artwork — built the technical foundation.</div></div>
-    <div class="tl-col"><div class="tl-year">2020</div><div class="tl-event-title">First Oil on Canvas</div><div class="tl-event-body">The pandemic gave time and hunger for challenge. A misplaced brushstroke became a flock of seagulls. He kept them.</div></div>
-    <div class="tl-col"><div class="tl-year">2021–23</div><div class="tl-event-title">Finding His Identity</div><div class="tl-event-body">The bobber paintings became his signature. Shadow, texture, hyper-realism — and a palette knife for sculptural depth.</div></div>
-    <div class="tl-col"><div class="tl-year">2024–25</div><div class="tl-event-title">Gallery Recognition</div><div class="tl-event-body">Work placed in Frederick Gallery, Autumn Elise, and Noon Designs across the Jersey Shore.</div></div>
-    <div class="tl-col"><div class="tl-year">2026</div><div class="tl-event-title">On The Water — Featured Artist</div><div class="tl-event-body">Selected as the featured Angling Artist in the 2026 On The Water Angler's Almanac.</div></div>
-  </div>
-</div>
+
 <footer><div class="ft-grid"><div><div class="ft-logo">CJ Davitt</div><div class="ft-sub">Angling Artist · Sandy Hook, NJ</div><p class="ft-tag">Original oil paintings rooted in the coast, the catch, and the quiet beauty of life by the water.</p></div><div><div class="ft-col-lbl">Navigate</div><a href="index.html" class="ft-link">Home</a><a href="works.html" class="ft-link">Works</a><a href="commissions.html" class="ft-link">Commissions</a><a href="contact.html" class="ft-link">Contact</a></div><div><div class="ft-col-lbl">Galleries</div><span class="ft-link">Frederick Gallery · Spring Lake</span><span class="ft-link">Autumn Elise · Rumson</span><span class="ft-link">Noon Designs · Bay Head</span></div></div><div class="ft-bot"><span class="ft-copy">© 2026 CJ Davitt · craigjamesd.com</span><a href="https://instagram.com/craigjamesd" target="_blank" class="ft-ig">@craigjamesd</a></div></footer>
 <script src="shared.js"></script>
 </body>
