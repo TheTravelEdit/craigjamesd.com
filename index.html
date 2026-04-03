@@ -13,12 +13,14 @@
 .hero-img-label{position:absolute;bottom:0;left:0;right:0;background:rgba(22,37,53,.72);padding:9px 18px;display:flex;justify-content:space-between;align-items:baseline;}
 .hil-title{font-family:var(--serif);font-style:italic;font-size:.76rem;color:rgba(255,255,255,.82);}
 .hil-meta{font-family:var(--sans);font-size:.44rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);}
-.hero-right{display:flex;flex-direction:column;height:calc(100vh - 56px);overflow:hidden;justify-content:space-between;}
-.hero-text{padding:32px var(--pad) 16px;}
-.hero-name{font-family:var(--display);font-size:1.9rem;font-weight:400;letter-spacing:.2em;color:var(--ink);text-transform:uppercase;margin-bottom:16px;line-height:1.1;}
-.hero-p{font-family:var(--body);font-size:.82rem;line-height:1.85;color:var(--drift);margin-bottom:10px;}
-.hero-btns{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;}
-.hero-lower{padding:0 var(--pad) 20px;}
+.hero-right{display:flex;flex-direction:column;height:calc(100vh - 56px);overflow:hidden;}
+.hero-text{padding:36px var(--pad) 0;flex:1;min-height:0;overflow:hidden;}
+.hero-name{font-family:var(--display);font-size:1.75rem;font-weight:400;letter-spacing:.2em;color:var(--ink);text-transform:uppercase;margin-bottom:18px;line-height:1.1;}
+.hero-p{font-family:var(--body);font-size:.86rem;line-height:1.9;color:var(--drift);margin-bottom:12px;}
+.hero-quote{border-left:3px solid var(--ink);padding:12px 18px;margin:16px 0 0;}
+.hero-quote-text{font-family:var(--serif);font-style:italic;font-size:.92rem;color:var(--anchor);line-height:1.75;}
+.hero-quote-attr{font-family:var(--sans);font-size:.48rem;letter-spacing:.14em;text-transform:uppercase;color:var(--pebble);margin-top:6px;}
+.hero-lower{padding:0 var(--pad) 22px;flex-shrink:0;}
 .hero-cap{padding:9px var(--pad);border-top:1px solid var(--stone);display:flex;justify-content:space-between;align-items:center;background:var(--paper);}
 @media(max-width:900px){
   .hero-body{grid-template-columns:1fr;height:auto;overflow:visible;}
@@ -30,8 +32,6 @@
 }
 @media(max-width:480px){
   .hero-name{font-size:1.15rem;}
-  .hero-btns{flex-direction:column;}
-  .hero-btns .btn{text-align:center;}
 }
 </style>
 </head>
@@ -63,10 +63,10 @@
       <div class="hero-name">Sandy Hook,<br>New Jersey</div>
       <p class="hero-p">Raised on the shores of Barnegat Bay, Davitt has spent his life within sight or sound of the water. Those early years — fishing for snappers with bobber rigs, crabbing on the family's old Dixie, watching light shift over the open bay — became the visual vocabulary he would later pour onto canvas.</p>
       <p class="hero-p">Working in oil on canvas and colored pencil, his paintings place heavy emphasis on shadow, texture, and hyper-realism. He often trades his brush for a palette knife, loading thick paint that dries with a sculptural surface — his subjects look like you could reach out and pick them up.</p>
-      <p class="hero-p">His work is held in private collections across the Northeast and shown in galleries throughout the Jersey Shore. In 2026 he was named the featured Angling Artist in <em>On The Water</em> Magazine's Angler's Almanac.</p>
-      <div class="hero-btns">
-        <a href="works.html" class="btn btn-f">View Works</a>
-        <a href="commissions.html" class="btn">Commission a Painting</a>
+      <p class="hero-p">His work is held in private collections across the Northeast and shown in galleries throughout the Jersey Shore. In 2026 he was named the featured Angling Artist in <em>On The Water</em> Magazine's annual Angler's Almanac.</p>
+      <div class="hero-quote">
+        <div class="hero-quote-text">"I just paint the things I like because they have meaning to me — and if people find meaning in them too, that's great."</div>
+        <div class="hero-quote-attr">— CJ Davitt · On The Water Magazine, 2026</div>
       </div>
     </div>
     <div class="hero-lower">
@@ -77,10 +77,6 @@
           <div class="event-date"><div class="eday">—</div><div class="emon">—</div></div>
           <div><div class="event-name">No upcoming events scheduled</div><div class="event-venue">Check back soon</div></div>
         </div>
-      </div>
-      <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--stone);">
-        <div style="font-family:var(--sans);font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pebble);margin-bottom:5px;">As Seen In</div>
-        <div style="font-family:var(--body);font-style:italic;font-size:.75rem;color:var(--drift);">On The Water Magazine — 2026 Angler's Almanac · Featured Angling Artist</div>
       </div>
     </div>
   </div>
