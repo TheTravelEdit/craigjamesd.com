@@ -44,7 +44,7 @@
 .art-card-cta{font-family:var(--sans);font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--drift);white-space:nowrap;border-bottom:1px solid var(--stone);padding-bottom:1px;text-decoration:none;flex-shrink:0;}
 /* ABOUT STRIP */
 .works-about{display:grid;grid-template-columns:300px 1fr;border-top:2px solid var(--ink);background:var(--paper);}
-.about-photo-col{border-right:1px solid var(--stone);overflow:hidden;background:var(--linen);}
+.about-photo-col{border-right:1px solid var(--stone);overflow:hidden;background:var(--linen);min-height:240px;}
 .about-photo-col img{width:100%;display:block;object-fit:cover;}
 .about-photo-cap{background:var(--navy);padding:11px 16px;}
 .apc-name{font-family:var(--display);font-size:.82rem;color:rgba(255,255,255,.85);letter-spacing:.18em;}
@@ -93,7 +93,7 @@
 
 <div class="works-about">
   <div class="about-photo-col">
-    <img id="artistPhotoImg" src="" alt="CJ Davitt"/>
+    <img id="artistPhotoImg" src="" alt="CJ Davitt" style="display:none;" onload="this.style.display='block'"/>
     <div class="about-photo-cap">
       <div class="apc-name">CJ Davitt</div>
       <div class="apc-sub">Angling Artist · Sandy Hook, NJ</div>
