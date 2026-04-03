@@ -234,14 +234,15 @@ img{max-width:100%;display:block;}
 
   <!-- WORKS PANEL -->
   <div class="panel" id="panel-works">
-    <button class="btn btn-primary btn-block" style="margin-bottom:16px;" onclick="openAddWork()">+ Add New Painting</button>
+    <button class="btn btn-primary btn-block" style="margin-bottom:12px;" onclick="openAddWork()">+ Add New Painting</button>
+    <!-- SLOT SUMMARY -->
+    <div id="slotSummary" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;"></div>
     <div class="filter-bar">
       <button class="filter-chip active" onclick="filterWorks('all',this)">All</button>
-      <button class="filter-chip" onclick="filterWorks('Available',this)">Available</button>
-      <button class="filter-chip" onclick="filterWorks('Sold',this)">Sold</button>
-      <button class="filter-chip" onclick="filterWorks('At Gallery',this)">At Gallery</button>
-      <button class="filter-chip" onclick="filterWorks('In Progress',this)">In Progress</button>
+      <button class="filter-chip" onclick="filterWorks('Published',this)">Published</button>
       <button class="filter-chip" onclick="filterWorks('Draft',this)">Draft</button>
+      <button class="filter-chip" onclick="filterWorks('Hidden',this)">Hidden</button>
+      <button class="filter-chip" onclick="filterWorks('Sold',this)">Sold</button>
     </div>
     <div class="works-grid" id="worksList"><div class="loading"><div class="loading-spinner"></div>Loading works…</div></div>
   </div>
@@ -297,6 +298,20 @@ img{max-width:100%;display:block;}
     <div class="modal-handle"></div>
     <div class="modal-title" id="workModalTitle">Add Painting</div>
     <input type="hidden" id="workEditId"/>
+
+    <!-- PHOTO PICKER -->
+    <div class="form-group">
+      <label class="form-label">Photo</label>
+      <div id="photoPreview" style="display:none;position:relative;margin-bottom:8px;">
+        <img id="photoPreviewImg" style="width:100%;max-height:200px;object-fit:cover;border-radius:8px;display:block;"/>
+        <button onclick="clearPhoto()" style="position:absolute;top:6px;right:6px;background:rgba(0,0,0,.55);color:#fff;border:none;border-radius:50%;width:28px;height:28px;font-size:1rem;cursor:pointer;">✕</button>
+      </div>
+      <input type="file" id="photoInput" accept="image/*" capture="environment" style="display:none;" onchange="handlePhotoSelect(event)"/>
+      <button class="btn btn-secondary btn-block" onclick="document.getElementById('photoInput').click()">📷 Select Photo / Camera</button>
+      <input type="hidden" id="wImageUrl"/>
+      <input type="hidden" id="wDriveFileId"/>
+    </div>
+
     <div class="form-group">
       <label class="form-label">Title *</label>
       <input type="text" class="form-input" id="wTitle" placeholder="e.g. Six Bobbers"/>
@@ -328,22 +343,18 @@ img{max-width:100%;display:block;}
     </div>
     <div class="form-row">
       <div class="form-group">
-        <label class="form-label">Width (inches)</label>
+        <label class="form-label">Width (in)</label>
         <input type="number" class="form-input" id="wWidth" placeholder="24"/>
       </div>
       <div class="form-group">
-        <label class="form-label">Height (inches)</label>
+        <label class="form-label">Height (in)</label>
         <input type="number" class="form-input" id="wHeight" placeholder="36"/>
       </div>
     </div>
     <div class="form-row">
       <div class="form-group">
-        <label class="form-label">Date Completed</label>
-        <input type="month" class="form-input" id="wDateCompleted"/>
-      </div>
-      <div class="form-group">
         <label class="form-label">Availability</label>
-        <select class="form-select" id="wAvailability">
+        <select class="form-select" id="wAvailability" onchange="toggleSoldFields(this.value)">
           <option>Available</option>
           <option>In Progress</option>
           <option>At Gallery</option>
@@ -352,8 +363,6 @@ img{max-width:100%;display:block;}
           <option>Archived</option>
         </select>
       </div>
-    </div>
-    <div class="form-row">
       <div class="form-group">
         <label class="form-label">Gallery Location</label>
         <select class="form-select" id="wGallery">
@@ -364,29 +373,63 @@ img{max-width:100%;display:block;}
           <option>N/A</option>
         </select>
       </div>
+    </div>
+
+    <!-- VISIBILITY + SITE SLOTS -->
+    <div style="border-top:1px solid var(--stone);padding-top:14px;margin-top:4px;">
+      <div style="font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pebble);margin-bottom:12px;">Site Visibility & Placement</div>
       <div class="form-group">
-        <label class="form-label">Site Visibility</label>
+        <label class="form-label">Visibility</label>
         <select class="form-select" id="wVisibility">
           <option>Draft</option>
           <option>Published</option>
           <option>Hidden</option>
         </select>
       </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group">
-        <label class="form-label">Featured on site?</label>
-        <select class="form-select" id="wFeatured">
-          <option>No</option>
-          <option>Yes</option>
-        </select>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+        <div class="form-group">
+          <label class="form-label">Hero Image <span style="color:var(--pebble);">(max 1)</span></label>
+          <select class="form-select" id="wHeroImage">
+            <option value="No">No</option>
+            <option value="Yes">Yes — Main Page</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Featured <span style="color:var(--pebble);">(max 3)</span></label>
+          <select class="form-select" id="wFeatured">
+            <option value="No">No</option>
+            <option value="Yes">Yes — Featured Works</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Gallery <span style="color:var(--pebble);">(max 9)</span></label>
+          <select class="form-select" id="wShowInGallery">
+            <option value="No">No</option>
+            <option value="Yes">Yes — More Works Grid</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Commissions <span style="color:var(--pebble);">(max 4)</span></label>
+          <select class="form-select" id="wShowOnCommissions">
+            <option value="No">No</option>
+            <option value="Yes">Yes — Commissions Page</option>
+          </select>
+        </div>
       </div>
+    </div>
+
+    <div class="form-row">
       <div class="form-group">
         <label class="form-label">Asking Price ($)</label>
         <input type="number" class="form-input" id="wAskingPrice" placeholder="2400"/>
       </div>
+      <div class="form-group">
+        <label class="form-label">Date Completed</label>
+        <input type="month" class="form-input" id="wDateCompleted"/>
+      </div>
     </div>
-    <!-- Sold fields — shown conditionally -->
+
+    <!-- SOLD FIELDS -->
     <div id="soldFields" style="display:none;border-top:1px solid var(--stone);padding-top:14px;margin-top:4px;">
       <div style="font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pebble);margin-bottom:12px;">Sold Details</div>
       <div class="form-row">
@@ -410,13 +453,10 @@ img{max-width:100%;display:block;}
         </div>
       </div>
     </div>
+
     <div class="form-group">
-      <label class="form-label">Image URL</label>
-      <input type="text" class="form-input" id="wImageUrl" placeholder="Paste image URL or leave blank"/>
-    </div>
-    <div class="form-group">
-      <label class="form-label">CJ Notes</label>
-      <textarea class="form-textarea" id="wNotes" placeholder="Any notes about this piece…" rows="3"></textarea>
+      <label class="form-label">Notes</label>
+      <textarea class="form-textarea" id="wNotes" placeholder="Any notes about this piece…" rows="2"></textarea>
     </div>
     <div class="form-actions">
       <button class="btn btn-primary" onclick="saveWork()">Save Painting</button>
@@ -688,160 +728,250 @@ async function saveInquiry() {
 
 // ═══════════════════════════════════════════════════
 // WORKS
-// ═══════════════════════════════════════════════════
+
+let pendingPhotoBase64 = null;
+let pendingPhotoMime = null;
+
+function handlePhotoSelect(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  // Compress before uploading
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const img = new Image();
+    img.onload = function() {
+      const canvas = document.createElement('canvas');
+      const MAX = 1200;
+      let w = img.width, h = img.height;
+      if (w > MAX) { h = Math.round(h * MAX / w); w = MAX; }
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      const compressed = canvas.toDataURL('image/jpeg', 0.82);
+      pendingPhotoBase64 = compressed.split(',')[1];
+      pendingPhotoMime = 'image/jpeg';
+      document.getElementById('photoPreviewImg').src = compressed;
+      document.getElementById('photoPreview').style.display = 'block';
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function clearPhoto() {
+  pendingPhotoBase64 = null;
+  pendingPhotoMime = null;
+  document.getElementById('photoPreview').style.display = 'none';
+  document.getElementById('photoPreviewImg').src = '';
+  document.getElementById('photoInput').value = '';
+}
+
 async function loadWorks() {
   const res = await api('get_works');
   if (!res.success) return;
   allWorks = res.data || [];
-  renderWorks();
+  renderWorks(allWorks);
+  renderSlotSummary(allWorks);
 }
 
-function filterWorks(filter, btn) {
-  currentFilter.works = filter;
-  document.querySelectorAll('#panel-works .filter-chip').forEach(c => c.classList.remove('active'));
-  btn.classList.add('active');
-  renderWorks();
+function renderSlotSummary(works) {
+  const slots = [
+    { key: 'Hero Image', max: 1, label: 'Hero' },
+    { key: 'Featured', max: 3, label: 'Featured' },
+    { key: 'Show in Gallery', max: 9, label: 'Gallery' },
+    { key: 'Show on Commissions', max: 4, label: 'Commissions' },
+  ];
+  const el = document.getElementById('slotSummary');
+  el.innerHTML = slots.map(s => {
+    const count = works.filter(w => w[s.key] === 'Yes').length;
+    const pct = Math.round(count / s.max * 100);
+    const color = count >= s.max ? '#c0392b' : count > 0 ? '#1a3a35' : '#b0aca4';
+    return `<div style="background:var(--paper);border:1px solid var(--stone);border-radius:8px;padding:8px 10px;">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;">
+        <span style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--pebble);">${s.label}</span>
+        <span style="font-size:.75rem;font-weight:500;color:${color};">${count}/${s.max}</span>
+      </div>
+      <div style="height:3px;background:var(--stone);border-radius:2px;overflow:hidden;">
+        <div style="height:100%;width:${pct}%;background:${color};transition:width .3s;"></div>
+      </div>
+    </div>`;
+  }).join('');
 }
 
-function renderWorks() {
+function renderWorks(works) {
   const list = document.getElementById('worksList');
-  let filtered = allWorks;
-  if (currentFilter.works === 'Draft') {
-    filtered = allWorks.filter(w => w['Visibility'] === 'Draft');
-  } else if (currentFilter.works !== 'all') {
-    filtered = allWorks.filter(w => w['Availability'] === currentFilter.works);
-  }
-
-  if (!filtered.length) {
-    list.innerHTML = '<div class="empty" style="grid-column:1/-1"><div class="empty-icon">🎨</div><div class="empty-text">No paintings found</div></div>';
-    return;
-  }
-
-  list.innerHTML = filtered.map(w => {
-    const dotClass = w['Availability'] === 'Available' ? 'dot-green' : w['Availability'] === 'Sold' ? 'dot-red' : 'dot-grey';
-    const dims = (w['Width (in)'] && w['Height (in)']) ? `${w['Width (in)']}″ × ${w['Height (in)']}″` : '';
-    return `
-    <div class="work-card">
-      ${w['Image URL'] ? `<img src="${w['Image URL']}" class="work-img" alt="${w['Title']}" onerror="this.style.display='none'"/>` : `<div class="work-img-placeholder">No image</div>`}
-      <div class="work-body">
-        <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px;">
-          <span class="dot ${dotClass}"></span>
-          <div class="work-title">${w['Title']}</div>
-        </div>
-        <div class="work-medium">${w['Medium']}${dims ? ' · ' + dims : ''}</div>
-        <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:10px;">
-          <span class="badge ${badgeClass(w['Availability'])}">${w['Availability']}</span>
-          <span class="badge ${badgeClass(w['Visibility'])}">${w['Visibility']}</span>
-          ${w['Featured'] === 'Yes' ? '<span class="badge" style="background:#f3e8ff;color:#6b21a8;">Featured</span>' : ''}
-        </div>
-        <div class="work-actions">
-          <button class="btn btn-secondary btn-sm" onclick="openEditWork('${w['Work ID']}')">Edit</button>
+  if (!works.length) { list.innerHTML = '<div style="text-align:center;color:var(--pebble);padding:32px;font-size:.85rem;">No paintings yet — tap + Add New Painting</div>'; return; }
+  list.innerHTML = works.map(w => {
+    const badges = [];
+    if (w['Hero Image'] === 'Yes') badges.push('<span style="background:#1a3a35;color:#fff;font-size:.48rem;padding:2px 7px;border-radius:100px;letter-spacing:.1em;">HERO</span>');
+    if (w['Featured'] === 'Yes') badges.push('<span style="background:#162535;color:#fff;font-size:.48rem;padding:2px 7px;border-radius:100px;letter-spacing:.1em;">FEATURED</span>');
+    if (w['Show in Gallery'] === 'Yes') badges.push('<span style="background:#2d5a52;color:#fff;font-size:.48rem;padding:2px 7px;border-radius:100px;letter-spacing:.1em;">GALLERY</span>');
+    if (w['Show on Commissions'] === 'Yes') badges.push('<span style="background:#5a3a1a;color:#fff;font-size:.48rem;padding:2px 7px;border-radius:100px;letter-spacing:.1em;">COMM</span>');
+    const visColor = w['Visibility'] === 'Published' ? '#2d6a4f' : w['Visibility'] === 'Draft' ? '#856404' : '#7a7670';
+    const imgHtml = w['Image URL'] ? `<img src="${w['Image URL']}" style="width:72px;height:54px;object-fit:cover;border-radius:6px;flex-shrink:0;" onerror="this.style.display='none'"/>` : `<div style="width:72px;height:54px;background:var(--stone);border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.6rem;color:var(--pebble);">No photo</div>`;
+    return `<div class="inquiry-card" onclick="openEditWork('${w['Work ID']}')">
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        ${imgHtml}
+        <div style="flex:1;min-width:0;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:4px;">
+            <div style="font-weight:500;font-size:.88rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${w['Title'] || 'Untitled'}</div>
+            <span style="font-size:.6rem;color:${visColor};white-space:nowrap;">${w['Visibility']}</span>
+          </div>
+          <div style="font-size:.75rem;color:var(--pebble);margin-bottom:6px;">${w['Medium'] || ''} ${w['Width (in)'] ? '· ' + w['Width (in)'] + '″ × ' + w['Height (in)'] + '″' : ''}</div>
+          <div style="display:flex;gap:4px;flex-wrap:wrap;">${badges.join('')}</div>
         </div>
       </div>
     </div>`;
   }).join('');
 }
 
+function filterWorks(val, btn) {
+  document.querySelectorAll('#panel-works .filter-chip').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentFilter.works = val;
+  const filtered = val === 'all' ? allWorks : allWorks.filter(w =>
+    w['Visibility'] === val || w['Availability'] === val
+  );
+  renderWorks(filtered);
+}
+
 function openAddWork() {
   document.getElementById('workModalTitle').textContent = 'Add Painting';
   document.getElementById('workEditId').value = '';
   document.getElementById('deleteWorkBtn').style.display = 'none';
-  ['wTitle','wWidth','wHeight','wAskingPrice','wSoldPrice','wDateSold','wCollectorName','wCollectorEmail','wImageUrl','wNotes'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.value = '';
+  clearPhoto();
+  ['wTitle','wWidth','wHeight','wAskingPrice','wNotes','wCollectorName','wCollectorEmail','wSoldPrice'].forEach(id => {
+    const el = document.getElementById(id); if(el) el.value = '';
   });
-  document.getElementById('wMedium').value = '';
-  document.getElementById('wCategory').value = '';
+  ['wMedium','wCategory','wGallery'].forEach(id => {
+    const el = document.getElementById(id); if(el) el.selectedIndex = 0;
+  });
   document.getElementById('wAvailability').value = 'Available';
-  document.getElementById('wGallery').value = 'Studio';
   document.getElementById('wVisibility').value = 'Draft';
+  document.getElementById('wHeroImage').value = 'No';
   document.getElementById('wFeatured').value = 'No';
+  document.getElementById('wShowInGallery').value = 'No';
+  document.getElementById('wShowOnCommissions').value = 'No';
   document.getElementById('soldFields').style.display = 'none';
   document.getElementById('wDateCompleted').value = '';
   openModal('workModal');
 }
 
 function openEditWork(id) {
-  const w = allWorks.find(w => w['Work ID'] === id);
+  const w = allWorks.find(x => x['Work ID'] === id);
   if (!w) return;
   document.getElementById('workModalTitle').textContent = 'Edit Painting';
   document.getElementById('workEditId').value = id;
   document.getElementById('deleteWorkBtn').style.display = 'block';
+  clearPhoto();
   document.getElementById('wTitle').value = w['Title'] || '';
   document.getElementById('wMedium').value = w['Medium'] || '';
   document.getElementById('wCategory').value = w['Category'] || '';
   document.getElementById('wWidth').value = w['Width (in)'] || '';
   document.getElementById('wHeight').value = w['Height (in)'] || '';
-  document.getElementById('wDateCompleted').value = w['Date Completed'] || '';
   document.getElementById('wAvailability').value = w['Availability'] || 'Available';
   document.getElementById('wGallery').value = w['Gallery Location'] || 'Studio';
   document.getElementById('wVisibility').value = w['Visibility'] || 'Draft';
+  document.getElementById('wHeroImage').value = w['Hero Image'] || 'No';
   document.getElementById('wFeatured').value = w['Featured'] || 'No';
+  document.getElementById('wShowInGallery').value = w['Show in Gallery'] || 'No';
+  document.getElementById('wShowOnCommissions').value = w['Show on Commissions'] || 'No';
   document.getElementById('wAskingPrice').value = w['Asking Price'] || '';
-  document.getElementById('wSoldPrice').value = w['Final Sold Price'] || '';
-  document.getElementById('wDateSold').value = w['Date Sold'] || '';
-  document.getElementById('wCollectorName').value = w['Collector Name'] || '';
-  document.getElementById('wCollectorEmail').value = w['Collector Email'] || '';
-  document.getElementById('wImageUrl').value = w['Image URL'] || '';
+  document.getElementById('wDateCompleted').value = w['Date Completed'] || '';
   document.getElementById('wNotes').value = w['CJ Notes'] || '';
-  document.getElementById('soldFields').style.display = w['Availability'] === 'Sold' ? 'block' : 'none';
+  document.getElementById('wImageUrl').value = w['Image URL'] || '';
+  document.getElementById('wDriveFileId').value = w['Drive File ID'] || '';
+  // Show photo preview if image exists
+  if (w['Image URL']) {
+    document.getElementById('photoPreviewImg').src = w['Image URL'];
+    document.getElementById('photoPreview').style.display = 'block';
+  }
+  toggleSoldFields(w['Availability']);
+  if (w['Availability'] === 'Sold') {
+    document.getElementById('wSoldPrice').value = w['Final Sold Price'] || '';
+    document.getElementById('wDateSold').value = w['Date Sold'] || '';
+    document.getElementById('wCollectorName').value = w['Collector Name'] || '';
+    document.getElementById('wCollectorEmail').value = w['Collector Email'] || '';
+  }
   openModal('workModal');
 }
 
-document.getElementById('wAvailability').addEventListener('change', function() {
-  document.getElementById('soldFields').style.display = this.value === 'Sold' ? 'block' : 'none';
-});
+function toggleSoldFields(val) {
+  document.getElementById('soldFields').style.display = val === 'Sold' ? 'block' : 'none';
+}
 
 async function saveWork() {
-  const id = document.getElementById('workEditId').value;
-  const isNew = !id;
-  const payload = {
-    title: document.getElementById('wTitle').value,
-    medium: document.getElementById('wMedium').value,
-    category: document.getElementById('wCategory').value,
-    width: document.getElementById('wWidth').value,
-    height: document.getElementById('wHeight').value,
-    dateCompleted: document.getElementById('wDateCompleted').value,
-    availability: document.getElementById('wAvailability').value,
-    galleryLocation: document.getElementById('wGallery').value,
-    visibility: document.getElementById('wVisibility').value,
-    featured: document.getElementById('wFeatured').value,
-    askingPrice: document.getElementById('wAskingPrice').value,
-    finalSoldPrice: document.getElementById('wSoldPrice').value,
-    dateSold: document.getElementById('wDateSold').value,
-    collectorName: document.getElementById('wCollectorName').value,
-    collectorEmail: document.getElementById('wCollectorEmail').value,
-    imageUrl: document.getElementById('wImageUrl').value,
-    notes: document.getElementById('wNotes').value,
-  };
+  const title = document.getElementById('wTitle').value.trim();
+  if (!title) { alert('Title is required.'); return; }
+  const btn = document.querySelector('#workModal .btn-primary');
+  btn.textContent = 'Saving…'; btn.disabled = true;
 
-  if (!payload.title) { showToast('Title is required'); return; }
+  try {
+    let imageUrl = document.getElementById('wImageUrl').value;
+    let driveFileId = document.getElementById('wDriveFileId').value;
 
-  const action = isNew ? 'add_work' : 'update_work';
-  if (!isNew) payload.id = id;
+    // Upload new photo to Drive if selected
+    if (pendingPhotoBase64) {
+      const upRes = await api('upload_image', {
+        imageData: pendingPhotoBase64,
+        mimeType: pendingPhotoMime || 'image/jpeg',
+        workId: document.getElementById('workEditId').value || null
+      });
+      if (upRes.success) {
+        imageUrl = upRes.url;
+        driveFileId = upRes.fileId;
+      } else {
+        alert('Photo upload failed: ' + upRes.error);
+        btn.textContent = 'Save Painting'; btn.disabled = false;
+        return;
+      }
+    }
 
-  const res = await api(action, payload);
-  if (res.success) {
-    closeModal('workModal');
-    showToast(isNew ? 'Painting added' : 'Painting updated');
-    loadWorks();
-  } else {
-    showToast('Error: ' + res.error);
+    const payload = {
+      id: document.getElementById('workEditId').value || null,
+      title, imageUrl, driveFileId,
+      medium: document.getElementById('wMedium').value,
+      category: document.getElementById('wCategory').value,
+      width: document.getElementById('wWidth').value,
+      height: document.getElementById('wHeight').value,
+      availability: document.getElementById('wAvailability').value,
+      galleryLocation: document.getElementById('wGallery').value,
+      visibility: document.getElementById('wVisibility').value,
+      heroImage: document.getElementById('wHeroImage').value,
+      featured: document.getElementById('wFeatured').value,
+      showInGallery: document.getElementById('wShowInGallery').value,
+      showOnCommissions: document.getElementById('wShowOnCommissions').value,
+      askingPrice: document.getElementById('wAskingPrice').value,
+      dateCompleted: document.getElementById('wDateCompleted').value,
+      notes: document.getElementById('wNotes').value,
+      soldPrice: document.getElementById('wSoldPrice').value,
+      dateSold: document.getElementById('wDateSold').value,
+      collectorName: document.getElementById('wCollectorName').value,
+      collectorEmail: document.getElementById('wCollectorEmail').value,
+    };
+
+    const action = payload.id ? 'update_work' : 'add_work';
+    const res = await api(action, payload);
+    if (res.success) {
+      closeModal('workModal');
+      loadWorks();
+    } else {
+      alert(res.error || 'Save failed.');
+    }
+  } catch(e) {
+    alert('Error: ' + e.message);
   }
+  btn.textContent = 'Save Painting'; btn.disabled = false;
 }
 
 async function deleteWork() {
-  if (!confirm('Delete this painting? This cannot be undone.')) return;
   const id = document.getElementById('workEditId').value;
+  if (!id || !confirm('Delete this painting? This cannot be undone.')) return;
   const res = await api('delete_work', { id });
-  if (res.success) {
-    closeModal('workModal');
-    showToast('Painting deleted');
-    loadWorks();
-  }
+  if (res.success) { closeModal('workModal'); loadWorks(); }
+  else alert(res.error || 'Delete failed.');
 }
 
-// ═══════════════════════════════════════════════════
+
 // EVENTS
 // ═══════════════════════════════════════════════════
 async function loadEvents() {
