@@ -10,7 +10,7 @@
 .comm-header{padding:28px var(--pad) 24px;border-bottom:1px solid var(--stone);}
 .comm-title{font-family:var(--display);font-size:1.1rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);}
 .comm-body{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:calc(100vh - 112px);}
-.comm-left{padding:32px var(--pad);border-right:1px solid var(--stone);display:flex;flex-direction:column;gap:0;}
+.comm-left{padding:32px var(--pad);border-right:1px solid var(--stone);display:flex;flex-direction:column;}
 .comm-intro{font-family:var(--body);font-size:.92rem;line-height:1.9;color:var(--drift);margin-bottom:28px;}
 .proc-item{display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--stone);}
 .proc-n{font-family:var(--serif);font-size:1.2rem;color:var(--navy);flex-shrink:0;width:22px;line-height:1;padding-top:2px;}
@@ -28,13 +28,10 @@
   .comm-left{border-right:none;border-bottom:1px solid var(--stone);padding:24px var(--pad);}
   .comm-right{padding:24px var(--pad);}
   .comm-intro{font-size:.88rem;}
-  .proc-name{font-size:.68rem;}
-  .proc-desc{font-size:.88rem;}
   .comm-details{margin-top:16px;}
-  .comm-samples{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:480px){
-  .comm-samples{grid-template-columns:1fr;}
+  .comm-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -49,22 +46,26 @@
 
 <div class="comm-body">
   <div class="comm-left">
-    <div style="background:var(--navy);padding:28px 24px;margin-bottom:24px;">
-      <div style="font-family:var(--sans);font-size:.48rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:12px;">Custom Work</div>
-      <div style="font-family:var(--serif);font-style:italic;font-size:1.3rem;color:rgba(255,255,255,.75);line-height:1.5;margin-bottom:16px;">"A favourite fishing hole, a beloved piece of tackle, a family boat, a catch you'll never forget."</div>
-      <div style="height:1px;background:rgba(255,255,255,.1);margin-bottom:16px;"></div>
-      <div style="display:flex;gap:24px;">
-        <div><div style="font-family:var(--sans);font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:3px;">Medium</div><div style="font-family:var(--body);font-size:.8rem;color:rgba(255,255,255,.5);">Oil on canvas &amp; panel</div></div>
-        <div><div style="font-family:var(--sans);font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:3px;">Availability</div><div style="font-family:var(--body);font-size:.8rem;color:rgba(255,255,255,.5);">Limited per year</div></div>
-        <div><div style="font-family:var(--sans);font-size:.46rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:3px;">Delivery</div><div style="font-family:var(--body);font-size:.8rem;color:rgba(255,255,255,.5);">Ships nationwide</div></div>
-      </div>
+    <p class="comm-intro">CJ takes a limited number of commissions each year — each treated with the same care and attention as his gallery work.</p>
+    <div class="proc-item">
+      <div class="proc-n">01</div>
+      <div><div class="proc-name">Reach Out</div><div class="proc-desc">Share your subject, size ideas, and any reference photos. The more context the better — CJ responds personally to every message.</div></div>
     </div>
-    <p class="comm-intro">A favourite fishing hole, a beloved piece of tackle, a family boat, a catch you'll never forget. CJ takes a limited number of commissions each year — each treated with the same care as his gallery work.</p>
-    <div class="proc-item"><div class="proc-n">01</div><div><div class="proc-name">Reach Out</div><div class="proc-desc">Share your subject, size ideas, and any reference photos. The more context the better — CJ responds personally to every message.</div></div></div>
-    <div class="proc-item"><div class="proc-n">02</div><div><div class="proc-name">Quote &amp; Timeline</div><div class="proc-desc">CJ responds with a price estimate and expected completion time based on size and complexity.</div></div></div>
-    <div class="proc-item"><div class="proc-n">03</div><div><div class="proc-name">Creation</div><div class="proc-desc">CJ paints your piece with the same attention he gives his gallery work. You'll receive updates along the way.</div></div></div>
-    <div class="proc-item"><div class="proc-n">04</div><div><div class="proc-name">Delivery</div><div class="proc-desc">Shipped nationwide with professional packaging, or available for local pickup in New Jersey.</div></div></div>
-    <div class="comm-cta"><a href="contact.html?inquiry=Commission+Request" class="btn" style="background:var(--seagreen);color:var(--white);border-color:var(--seagreen);font-size:.64rem;padding:12px 24px;display:block;text-align:center;">Start a Commission →</a></div>
+    <div class="proc-item">
+      <div class="proc-n">02</div>
+      <div><div class="proc-name">Quote &amp; Timeline</div><div class="proc-desc">CJ responds with a price estimate and expected completion time based on size and complexity.</div></div>
+    </div>
+    <div class="proc-item">
+      <div class="proc-n">03</div>
+      <div><div class="proc-name">Creation</div><div class="proc-desc">CJ paints your piece with the same attention he gives his gallery work. You'll receive updates along the way.</div></div>
+    </div>
+    <div class="proc-item">
+      <div class="proc-n">04</div>
+      <div><div class="proc-name">Delivery</div><div class="proc-desc">Shipped nationwide with professional packaging, or available for local pickup in New Jersey.</div></div>
+    </div>
+    <div class="comm-cta">
+      <a href="contact.html?inquiry=Commission+Request" class="btn" style="background:var(--seagreen);color:var(--white);border-color:var(--seagreen);font-size:.64rem;padding:12px 24px;display:block;text-align:center;">Start a Commission →</a>
+    </div>
     <div class="comm-details">
       <div class="cred-item"><div class="cred-lbl">Availability</div><div class="cred-val">Limited commissions accepted per year</div></div>
       <div class="cred-item"><div class="cred-lbl">Pricing</div><div class="cred-val">Based on size and complexity — contact for a quote</div></div>
@@ -84,7 +85,15 @@
   </div>
 </div>
 
-<footer><div class="ft-grid"><div><div class="ft-logo">CJ Davitt</div><div class="ft-sub">Angling Artist · Sandy Hook, NJ</div><p class="ft-tag">Original oil paintings rooted in the coast, the catch, and the quiet beauty of life by the water.</p></div><div><div class="ft-col-lbl">Navigate</div><a href="index.html" class="ft-link">Home</a><a href="works.html" class="ft-link">Works</a><a href="about.html" class="ft-link">About</a><a href="contact.html" class="ft-link">Contact</a></div><div><div class="ft-col-lbl">Galleries</div><span class="ft-link">Frederick Gallery · Spring Lake</span><span class="ft-link">Autumn Elise · Rumson</span><span class="ft-link">Noon Designs · Bay Head</span></div></div><div class="ft-bot"><span class="ft-copy">© 2026 CJ Davitt · craigjamesd.com</span><a href="https://instagram.com/craigjamesd" target="_blank" class="ft-ig">@craigjamesd</a></div></footer>
+<footer>
+  <div class="ft-grid">
+    <div><div class="ft-logo">CJ Davitt</div><div class="ft-sub">Angling Artist · Sandy Hook, NJ</div><p class="ft-tag">Original oil paintings rooted in the coast, the catch, and the quiet beauty of life by the water.</p></div>
+    <div><div class="ft-col-lbl">Navigate</div><a href="index.html" class="ft-link">Home</a><a href="works.html" class="ft-link">Works</a><a href="commissions.html" class="ft-link">Commissions</a><a href="about.html" class="ft-link">About</a><a href="contact.html" class="ft-link">Contact</a></div>
+    <div><div class="ft-col-lbl">Galleries</div><span class="ft-link">Frederick Gallery · Spring Lake</span><span class="ft-link">Autumn Elise · Rumson</span><span class="ft-link">Noon Designs · Bay Head</span></div>
+  </div>
+  <div class="ft-bot"><span class="ft-copy">© 2026 CJ Davitt · craigjamesd.com</span><a href="https://instagram.com/craigjamesd" target="_blank" class="ft-ig">@craigjamesd</a></div>
+</footer>
+
 <script src="shared.js"></script>
 <script>
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwmyK0ljJsRQG3XXsWIAwr_cNyMuwnvgYblWskEZlrDgWVf4pMSiSut4yK_T68cwBePOA/exec';
@@ -108,3 +117,4 @@ async function loadCommissionWorks() {
 loadCommissionWorks();
 </script>
 </body>
+</html>
