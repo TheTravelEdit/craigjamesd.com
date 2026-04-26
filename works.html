@@ -83,9 +83,8 @@
     <div class="grid-label">More Works</div>
     <div class="works-filters">
       <button class="wf active" onclick="filterByMedium('all',this)">All</button>
-      <button class="wf" onclick="filterByMedium('Oil on Canvas',this)">Oil on Canvas</button>
-      <button class="wf" onclick="filterByMedium('Oil on Panel',this)">Oil on Panel</button>
-      <button class="wf" onclick="filterByMedium('Colored Pencil',this)">Colored Pencil</button>
+      <button class="wf" onclick="filterByMedium('oil',this)">Oil</button>
+      <button class="wf" onclick="filterByMedium('pencil',this)">Pencil</button>
     </div>
   </div>
   <div class="art-grid" id="galleryGrid"><div style="padding:24px 0;color:var(--pebble);font-size:.82rem;">Loading…</div></div>
@@ -139,7 +138,11 @@ function filterByMedium(medium, btn) {
   document.querySelectorAll('.wf').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   document.querySelectorAll('.art-card').forEach(el => {
-    el.style.display = (medium==='all' || el.dataset.medium===medium) ? '' : 'none';
+    const m = (el.dataset.medium || '').toLowerCase();
+    const show = medium === 'all'
+      || (medium === 'oil'    && m.includes('oil'))
+      || (medium === 'pencil' && m.includes('pencil'));
+    el.style.display = show ? '' : 'none';
   });
 }
 
